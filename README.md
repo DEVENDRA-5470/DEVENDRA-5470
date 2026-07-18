@@ -125,10 +125,6 @@ Django + MySQL app on a **self-managed, live 3-node K3s Kubernetes cluster** (`b
 <tr>
 <td width="100%">
 
-### 🏗️ [PROJECT NAME] — Multi-Tier GitOps Deployment
-<!-- TODO: Replace with your actual project details -->
-_Add description here: e.g. "2-tier / 3-tier architecture deployed on Kubernetes using GitOps principles with ArgoCD for continuous delivery, Jenkins for CI, and Helm for release management."_
-
 <img src="https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white"/> <img src="https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white"/> <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white"/> <img src="https://img.shields.io/badge/GitOps-4A90D9?style=flat-square&logo=git&logoColor=white"/>
 
 </td>
