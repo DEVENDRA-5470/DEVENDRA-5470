@@ -197,12 +197,12 @@ A 20-section, ~260KB self-authored technical reference on Kubernetes internals â
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=DEVENDRA-5470&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=DEVENDRA-5470&show_icons=true&theme=tokyonight&hide_border=true" />
 <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DEVENDRA-5470&layout=compact&theme=tokyonight&hide_border=true" />
 
 <br/>
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=DEVENDRA-5470&theme=tokyonight&hide_border=true" />
+<img src="https://streak-stats.demolab.com?user=DEVENDRA-5470&theme=tokyonight&hide_border=true" />
 
 </div>
 
