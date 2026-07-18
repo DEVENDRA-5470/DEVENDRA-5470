@@ -117,15 +117,15 @@ Full-stack MERN e-commerce platform on a **self-hosted, distributed Jenkins arch
 
 ### 📚 BookVault — K3s Cluster & Service Mesh
 Django + MySQL app on a **self-managed, live 3-node K3s Kubernetes cluster** (`bookvault.devilhai.online`), instrumented with Prometheus + Grafana + AlertManager (Telegram alerting). Extended into a **Linkerd service mesh** tracking golden signal metrics. Implements RBAC, NetworkPolicy, HPA/VPA, NodeAffinity, InitContainers, Redis caching, Traefik Ingress with cert-manager TLS — built as hands-on infra for CKA-level Kubernetes operations.
-
 <img src="https://img.shields.io/badge/K3s-FFC61C?style=flat-square&logo=k3s&logoColor=black"/> <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white"/> <img src="https://img.shields.io/badge/Linkerd-2BEDA7?style=flat-square&logo=linkerd&logoColor=black"/> <img src="https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white"/> <img src="https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white"/> <img src="https://img.shields.io/badge/Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white"/>
+<img src="https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white"/> <img src="https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white"/> <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white"/> <img src="https://img.shields.io/badge/GitOps-4A90D9?style=flat-square&logo=git&logoColor=white"/>
 
 </td>
 </tr>
 <tr>
 <td width="100%">
 
-<img src="https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white"/> <img src="https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white"/> <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white"/> <img src="https://img.shields.io/badge/GitOps-4A90D9?style=flat-square&logo=git&logoColor=white"/>
+
 
 </td>
 </tr>
