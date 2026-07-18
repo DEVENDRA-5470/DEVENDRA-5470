@@ -27,9 +27,7 @@ I'm a **self-taught DevOps & SRE Engineer** with **3.5+ years of experience**, c
 <br/>
 
 ## 🛠️ Tech Stack
-
 <div align="center">
-
 <table>
 <tr>
 <th align="center">Category</th>
@@ -49,14 +47,29 @@ I'm a **self-taught DevOps & SRE Engineer** with **3.5+ years of experience**, c
 <td align="center">
 <img src="https://skillicons.dev/icons?i=docker" height="45"/>&nbsp;&nbsp;
 <img src="https://skillicons.dev/icons?i=kubernetes" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=jenkins" height="45"/>
+<img src="https://skillicons.dev/icons?i=jenkins" height="45"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-Argo_CD-EF7B4D?style=flat-square&logo=argo&logoColor=white" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-Linkerd-2BEDA7?style=flat-square&logo=linkerd&logoColor=black" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-Helm-0F1689?style=flat-square&logo=helm&logoColor=white" height="30"/>
 </td>
 </tr>
 <tr>
 <td align="center"><b>📊 Monitoring & Observability</b></td>
 <td align="center">
 <img src="https://skillicons.dev/icons?i=prometheus" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=grafana" height="45"/>
+<img src="https://skillicons.dev/icons?i=grafana" height="45"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-Datadog-632CA6?style=flat-square&logo=datadog&logoColor=white" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-AlertManager-E6522C?style=flat-square&logo=prometheus&logoColor=white" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-ELK_Stack-005571?style=flat-square&logo=elastic&logoColor=white" height="30"/>
+</td>
+</tr>
+<tr>
+<td align="center"><b>🔐 Security & Secrets</b></td>
+<td align="center">
+<img src="https://img.shields.io/badge/-HashiCorp_Vault-000000?style=flat-square&logo=vault&logoColor=white" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-AWS_IAM-FF9900?style=flat-square&logo=amazoniam&logoColor=white" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-cert--manager-326CE5?style=flat-square&logo=letsencrypt&logoColor=white" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-SSM-FF9900?style=flat-square&logo=amazonaws&logoColor=white" height="30"/>
 </td>
 </tr>
 <tr>
@@ -65,7 +78,8 @@ I'm a **self-taught DevOps & SRE Engineer** with **3.5+ years of experience**, c
 <img src="https://skillicons.dev/icons?i=python" height="45"/>&nbsp;&nbsp;
 <img src="https://skillicons.dev/icons?i=bash" height="45"/>&nbsp;&nbsp;
 <img src="https://skillicons.dev/icons?i=mongodb" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=mysql" height="45"/>
+<img src="https://skillicons.dev/icons?i=mysql" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=redis" height="45"/>
 </td>
 </tr>
 <tr>
@@ -74,11 +88,12 @@ I'm a **self-taught DevOps & SRE Engineer** with **3.5+ years of experience**, c
 <img src="https://skillicons.dev/icons?i=git" height="45"/>&nbsp;&nbsp;
 <img src="https://skillicons.dev/icons?i=github" height="45"/>&nbsp;&nbsp;
 <img src="https://skillicons.dev/icons?i=githubactions" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=linux" height="45"/>
+<img src="https://skillicons.dev/icons?i=linux" height="45"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-Nginx-009639?style=flat-square&logo=nginx&logoColor=white" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white" height="30"/>
 </td>
 </tr>
 </table>
-
 </div>
 
 <br/>
