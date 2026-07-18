@@ -1,6 +1,4 @@
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:2c5364,100:00c6ff&height=200&section=header&text=Hi%20There,%20I%27m%20Devendra&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Senior%20DevOps%20%26%20SRE%20Engineer&descAlignY=58&descSize=18" width="100%"/>
-
 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE">
   <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
 </a>
