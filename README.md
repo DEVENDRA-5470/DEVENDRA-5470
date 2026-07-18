@@ -1,4 +1,6 @@
 <div align="center">
+
+
 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE">
   <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
 </a>
@@ -28,25 +30,54 @@ I'm a **self-taught DevOps & SRE Engineer** with **3.5+ years of experience**, c
 
 <div align="center">
 
-**Cloud & Infrastructure**
-<br/>
-<img src="https://skillicons.dev/icons?i=aws,azure,terraform,ansible" />
-
-**Containers & Orchestration**
-<br/>
-<img src="https://skillicons.dev/icons?i=docker,kubernetes,jenkins" />
-
-**Monitoring & Observability**
-<br/>
-<img src="https://skillicons.dev/icons?i=prometheus,grafana" />
-
-**Languages & Data**
-<br/>
-<img src="https://skillicons.dev/icons?i=python,bash,mongodb,mysql" />
-
-**CI/CD & Version Control**
-<br/>
-<img src="https://skillicons.dev/icons?i=git,github,githubactions,linux" />
+<table>
+<tr>
+<th align="center">Category</th>
+<th align="center">Tools</th>
+</tr>
+<tr>
+<td align="center"><b>☁️ Cloud & Infrastructure</b></td>
+<td align="center">
+<img src="https://skillicons.dev/icons?i=aws" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=azure" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=terraform" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=ansible" height="45"/>
+</td>
+</tr>
+<tr>
+<td align="center"><b>📦 Containers & Orchestration</b></td>
+<td align="center">
+<img src="https://skillicons.dev/icons?i=docker" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=kubernetes" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=jenkins" height="45"/>
+</td>
+</tr>
+<tr>
+<td align="center"><b>📊 Monitoring & Observability</b></td>
+<td align="center">
+<img src="https://skillicons.dev/icons?i=prometheus" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=grafana" height="45"/>
+</td>
+</tr>
+<tr>
+<td align="center"><b>💻 Languages & Data</b></td>
+<td align="center">
+<img src="https://skillicons.dev/icons?i=python" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=bash" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=mongodb" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=mysql" height="45"/>
+</td>
+</tr>
+<tr>
+<td align="center"><b>🔄 CI/CD & Version Control</b></td>
+<td align="center">
+<img src="https://skillicons.dev/icons?i=git" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=github" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=githubactions" height="45"/>&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=linux" height="45"/>
+</td>
+</tr>
+</table>
 
 </div>
 
