@@ -1,6 +1,5 @@
 <div align="center">
 
-
 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE">
   <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
 </a>
@@ -27,6 +26,7 @@ I'm a **self-taught DevOps & SRE Engineer** with **3.5+ years of experience**, c
 <br/>
 
 ## 🛠️ Tech Stack
+
 <div align="center">
 <table>
 <tr>
@@ -51,6 +51,17 @@ I'm a **self-taught DevOps & SRE Engineer** with **3.5+ years of experience**, c
 <img src="https://img.shields.io/badge/-Argo_CD-EF7B4D?style=flat-square&logo=argo&logoColor=white" height="30"/>&nbsp;&nbsp;
 <img src="https://img.shields.io/badge/-Linkerd-2BEDA7?style=flat-square&logo=linkerd&logoColor=black" height="30"/>&nbsp;&nbsp;
 <img src="https://img.shields.io/badge/-Helm-0F1689?style=flat-square&logo=helm&logoColor=white" height="30"/>
+</td>
+</tr>
+<tr>
+<td align="center"><b>🌐 Networking</b></td>
+<td align="center">
+<img src="https://img.shields.io/badge/-Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-Nginx-009639?style=flat-square&logo=nginx&logoColor=white" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-DNS-4A90D9?style=flat-square&logo=cloudflare&logoColor=white" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-TCP%2FIP-333333?style=flat-square&logo=wireshark&logoColor=white" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-OSI_Model-333333?style=flat-square&logo=ieee&logoColor=white" height="30"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/-Route_53-8C4FFF?style=flat-square&logo=amazonroute53&logoColor=white" height="30"/>
 </td>
 </tr>
 <tr>
@@ -88,9 +99,7 @@ I'm a **self-taught DevOps & SRE Engineer** with **3.5+ years of experience**, c
 <img src="https://skillicons.dev/icons?i=git" height="45"/>&nbsp;&nbsp;
 <img src="https://skillicons.dev/icons?i=github" height="45"/>&nbsp;&nbsp;
 <img src="https://skillicons.dev/icons?i=githubactions" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=linux" height="45"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-Nginx-009639?style=flat-square&logo=nginx&logoColor=white" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white" height="30"/>
+<img src="https://skillicons.dev/icons?i=linux" height="45"/>
 </td>
 </tr>
 </table>
@@ -130,17 +139,10 @@ Full-stack MERN e-commerce platform on a **self-hosted, distributed Jenkins arch
 </td>
 <td width="50%">
 
-### 📚 BookVault — K3s Cluster & Service Mesh
-Django + MySQL app on a **self-managed, live 3-node K3s Kubernetes cluster** (`bookvault.devilhai.online`), instrumented with Prometheus + Grafana + AlertManager (Telegram alerting). Extended into a **Linkerd service mesh** tracking golden signal metrics. Implements RBAC, NetworkPolicy, HPA/VPA, NodeAffinity, InitContainers, Redis caching, Traefik Ingress with cert-manager TLS — built as hands-on infra for CKA-level Kubernetes operations.
-<img src="https://img.shields.io/badge/K3s-FFC61C?style=flat-square&logo=k3s&logoColor=black"/> <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white"/> <img src="https://img.shields.io/badge/Linkerd-2BEDA7?style=flat-square&logo=linkerd&logoColor=black"/> <img src="https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white"/> <img src="https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white"/> <img src="https://img.shields.io/badge/Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white"/>
-<img src="https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white"/> <img src="https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white"/> <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white"/> <img src="https://img.shields.io/badge/GitOps-4A90D9?style=flat-square&logo=git&logoColor=white"/>
+### 📚 BookVault — K3s Cluster, Service Mesh & GitOps
+Django + MySQL app on a **self-managed, live 3-node K3s Kubernetes cluster** (`bookvault.devilhai.online`), instrumented with Prometheus + Grafana + AlertManager (Telegram alerting). Extended into a **Linkerd service mesh** tracking golden signal metrics, with **Jenkins + ArgoCD GitOps** delivery. Implements RBAC, NetworkPolicy, HPA/VPA, NodeAffinity, InitContainers, Redis caching, Traefik Ingress with cert-manager TLS — built as hands-on infra for CKA-level Kubernetes operations.
 
-</td>
-</tr>
-<tr>
-<td width="100%">
-
-
+<img src="https://img.shields.io/badge/K3s-FFC61C?style=flat-square&logo=k3s&logoColor=black"/> <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white"/> <img src="https://img.shields.io/badge/Linkerd-2BEDA7?style=flat-square&logo=linkerd&logoColor=black"/> <img src="https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white"/> <img src="https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white"/> <img src="https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white"/> <img src="https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white"/> <img src="https://img.shields.io/badge/Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white"/>
 
 </td>
 </tr>
