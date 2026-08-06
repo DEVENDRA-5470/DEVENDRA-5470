@@ -5,12 +5,24 @@
 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE"><img src="https://img.shields.io/badge/LinkedIn-black?style=flat-square&logo=linkedin&logoColor=0A66C2"/></a>
 <a href="https://blog.devilhai.info"><img src="https://img.shields.io/badge/Blog-black?style=flat-square&logo=hashnode&logoColor=2962FF"/></a>
 <a href="mailto:YOUR-EMAIL"><img src="https://img.shields.io/badge/Email-black?style=flat-square&logo=gmail&logoColor=EA4335"/></a>
+&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/Status-Building%20in%20Production-2BEDA7?style=flat-square"/>
+<img src="https://img.shields.io/badge/Location-Faridabad%2C%20IN-38BDF8?style=flat-square"/>
+<img src="https://komarev.com/ghpvc/?username=DEVENDRA-5470&label=Profile%20Views&color=38BDF8&style=flat-square"/>
+
+<br/><br/>
+
+<table width="850">
+<tr><td align="center">
+
+<sub>Infrastructure engineer designing and operating the Kubernetes, CI/CD, and observability stacks behind production systems — from self-managed K3s clusters and service meshes to zero-trust, keyless CI/CD pipelines running in AWS.</sub>
+
+</td></tr>
+</table>
 
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=400&size=16&pause=1000&color=38BDF8&center=true&vCenter=true&width=640&lines=Designing+production-grade+Kubernetes+infrastructure;Building+zero-trust%2C+keyless+CI%2FCD+pipelines;3.5%2B+years+running+systems+that+don%27t+go+down"/>
-
-<sub><img src="https://komarev.com/ghpvc/?username=DEVENDRA-5470&label=Profile%20Views&color=38BDF8&style=flat-square"/></sub>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=400&size=16&pause=1000&color=38BDF8&center=true&vCenter=true&width=850&lines=Designing+production-grade+Kubernetes+infrastructure;Building+zero-trust%2C+keyless+CI%2FCD+pipelines;3.5%2B+years+running+systems+that+don%27t+go+down"/>
 
 <br/><br/>
 
@@ -20,11 +32,11 @@
 
 <br/>
 
-<table align="center">
+<table align="center" width="850">
 <tr>
-<td align="center" width="180">3.5+ yrs<br/><sub>in production infra</sub></td>
-<td align="center" width="180">7<br/><sub>systems designed & operated</sub></td>
-<td align="center" width="180">Faridabad, IN<br/><sub>IST · UTC+5:30</sub></td>
+<td align="center" width="33%">3.5+ yrs<br/><sub>in production infra</sub></td>
+<td align="center" width="33%">7<br/><sub>systems designed & operated</sub></td>
+<td align="center" width="33%">Faridabad, IN<br/><sub>IST · UTC+5:30</sub></td>
 </tr>
 </table>
 
