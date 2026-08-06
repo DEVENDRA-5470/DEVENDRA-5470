@@ -1,96 +1,160 @@
 <div align="center">
 
-# Devendra — Senior DevOps & SRE Engineer
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=180&section=header&text=DEVENDRA&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Infrastructure%20Engineer%20%7C%20Kubernetes%20%C2%B7%20AWS%20%C2%B7%20SRE&descAlignY=58&descSize=18"/>
 
-Infrastructure engineer with 3.5+ years running production systems — designing and operating the Kubernetes, CI/CD, and observability stacks underneath them.
+<br/>
 
-[LinkedIn](https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE) · [Blog](https://blog.devilhai.info) · Faridabad, India (IST)
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE"><img src="https://img.shields.io/badge/LinkedIn-black?style=flat-square&logo=linkedin&logoColor=0A66C2"/></a>
+<a href="https://blog.devilhai.info"><img src="https://img.shields.io/badge/Blog-black?style=flat-square&logo=hashnode&logoColor=2962FF"/></a>
+<a href="mailto:YOUR-EMAIL"><img src="https://img.shields.io/badge/Email-black?style=flat-square&logo=gmail&logoColor=EA4335"/></a>
+
+<br/><br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=38BDF8&center=true&vCenter=true&width=680&lines=Designing+production-grade+Kubernetes+infrastructure;Building+zero-trust%2C+keyless+CI%2FCD+pipelines;3.5%2B+years+running+systems+that+don%27t+go+down"/>
 
 </div>
 
----
+<br/>
 
-## Focus areas
+<table align="center">
+<tr>
+<td align="center" width="200"><b>3.5+ yrs</b><br/><sub>in production infra</sub></td>
+<td align="center" width="200"><b>7</b><br/><sub>systems designed & operated</sub></td>
+<td align="center" width="200"><b>Faridabad, IN</b><br/><sub>IST · UTC+5:30</sub></td>
+</tr>
+</table>
 
-`Kubernetes & Service Mesh` · `AWS (ECS, Lambda, IAM/OIDC)` · `CI/CD (Jenkins, GitHub Actions, ArgoCD)` · `Observability (Prometheus/Grafana/AlertManager)` · `IaC (Terraform, Ansible)`
+<br/>
 
-Currently: building out service mesh + GitOps delivery on a self-managed K3s cluster, and running production CI/CD for a MERN e-commerce platform on self-hosted Jenkins.
+## Focus
+
+<div align="center">
+
+`Kubernetes & Service Mesh` &nbsp;·&nbsp; `AWS (ECS · Lambda · IAM/OIDC)` &nbsp;·&nbsp; `CI/CD (Jenkins · Actions · ArgoCD)` &nbsp;·&nbsp; `Observability (Prometheus/Grafana)` &nbsp;·&nbsp; `IaC (Terraform · Ansible)`
+
+</div>
+
+Currently building out service mesh + GitOps delivery on a self-managed K3s cluster, and running production CI/CD for a MERN e-commerce platform on self-hosted Jenkins.
+
+<br/>
+
+## Stack
+
+<div align="center">
+<img src="https://skillicons.dev/icons?i=aws,azure,terraform,ansible,docker,kubernetes,jenkins,python,bash,mongodb,mysql,redis,git,github,githubactions,linux&theme=dark" />
+</div>
+
+<div align="center">
+<sub>Service mesh: Linkerd &nbsp;·&nbsp; GitOps: ArgoCD &nbsp;·&nbsp; Ingress: Traefik + cert-manager &nbsp;·&nbsp; Secrets: HashiCorp Vault · SSM &nbsp;·&nbsp; Alerting: AlertManager · Datadog · ELK</sub>
+</div>
+
+<br/>
 
 ---
 
 ## Case studies
 
-Each project below is infrastructure I designed, deployed, and operate — not a tutorial clone. Written as case studies because the *decisions* matter more than the tech list.
+Each project below is infrastructure I designed, deployed, and operate — written as a case study because the decisions matter more than the tech list.
 
-### BookVault — Self-managed Kubernetes cluster with service mesh & GitOps
-A 3-node K3s cluster (1 control plane, 2 workers) running a Django/MySQL app, built as hands-on infrastructure for CKA-level Kubernetes operations — not a managed EKS shortcut.
+<br/>
 
-- **Problem:** needed real operational exposure to cluster internals (scheduling, networking, RBAC) that managed Kubernetes abstracts away.
-- **Approach:** self-managed control plane; Linkerd service mesh instrumented for golden-signal metrics (latency, traffic, errors, saturation); Jenkins + ArgoCD for GitOps-style delivery; Traefik Ingress with cert-manager for TLS.
-- **Hardening:** RBAC, NetworkPolicy, HPA/VPA, node affinity, init containers, Redis caching layer.
-- **Observability:** Prometheus + Grafana + AlertManager wired to Telegram for on-call-style alerting.
-- **Stack:** K3s · Kubernetes · Linkerd · ArgoCD · Jenkins · Prometheus · Grafana · Traefik
+<table>
+<tr>
+<td width="50%" valign="top">
 
-### Electronix — Distributed Jenkins CI/CD for a production MERN app
-Full-stack e-commerce platform where the interesting work is the delivery pipeline, not the storefront.
+**🧩 BookVault** — Self-managed K3s cluster, service mesh & GitOps
 
-- **Problem:** needed a CI/CD path with zero hardcoded credentials and a clean deploy story to S3/CloudFront.
-- **Approach:** dedicated SSH-based Jenkins agent on EC2, declarative pipeline (checkout → build → S3 upload → CloudFront invalidation), IAM role-based auth end to end, CloudFront Origin Access Control over an otherwise-public S3 bucket.
-- **Migration:** moved the backend data layer from MongoDB to MySQL/Sequelize across 5 relational models with junction tables — a schema redesign, not a lift-and-shift.
-- **Stack:** Jenkins · AWS S3/CloudFront · MySQL/Sequelize · React · Razorpay
+A 3-node K3s cluster running Django/MySQL, built as hands-on infra for CKA-level operations — not a managed EKS shortcut.
 
-### SimpleBank — Zero-SSH, keyless AWS-native CI/CD
-The design goal here was eliminating standing access, not just automating deploys.
+- **Problem** — needed real exposure to scheduling, networking, and RBAC that managed Kubernetes abstracts away
+- **Approach** — self-managed control plane, Linkerd mesh tracking golden-signal metrics, Jenkins + ArgoCD GitOps delivery, Traefik + cert-manager TLS
+- **Hardening** — RBAC, NetworkPolicy, HPA/VPA, node affinity, init containers, Redis caching
+- **Observability** — Prometheus + Grafana + AlertManager → Telegram
 
-- **Problem:** long-lived SSH keys and static AWS credentials are a standing attack surface.
-- **Approach:** GitHub Actions authenticates via OIDC (no stored credentials), deploys reach EC2 through SSM Session Manager (no open SSH port at all), runtime secrets pulled from SSM Parameter Store, images shipped through ECR, orchestrated with Docker Compose across dual EC2 instances.
-- **Stack:** Flask · MySQL · AWS ECR/EC2/SSM · OIDC · GitHub Actions
+`K3s` `Linkerd` `ArgoCD` `Jenkins` `Prometheus`
 
-### IQuiz Hub — Production platform on ECS Fargate
-React/Node/MongoDB quiz platform, including a proctored coding-exam module (Monaco editor, anti-cheat, auto-submit) and cascade-delete data integrity across related collections.
+</td>
+<td width="50%" valign="top">
 
-- **Problem:** ECS deployments were failing silently under the circuit breaker; a working container image doesn't guarantee a working service.
-- **Approach:** diagnosed and resolved ECS circuit-breaker rollback failures and an nginx port-mapping misconfiguration in production — the kind of failure that only shows up under real deploy conditions, not in local `docker run`.
-- **Delivery:** versioned Docker releases through GitHub Actions CI/CD.
-- **Stack:** AWS ECS Fargate · React · Node/Express · MongoDB · GitHub Actions
+**⚙️ Electronix** — Distributed Jenkins CI/CD, production MERN app
 
-### DevOps World — Serverless blog platform
-Built to prove out a fully serverless architecture end to end, not just host a blog.
+Full-stack e-commerce platform where the interesting work is the delivery pipeline.
 
-- **Approach:** S3 + CloudFront (OAC) + Route 53 + ACM for the static frontend, Cognito for auth, SES for transactional email, a Lambda function behind API Gateway for subscriber onboarding, DynamoDB for post metadata.
-- **Stack:** S3 · CloudFront · Lambda · API Gateway · DynamoDB · Cognito · SES
+- **Problem** — needed zero hardcoded credentials and a clean deploy path to S3/CloudFront
+- **Approach** — dedicated SSH-based Jenkins agent, declarative pipeline (build → S3 → CloudFront invalidation), IAM role-based auth, CloudFront OAC over private S3
+- **Migration** — moved backend from MongoDB to MySQL/Sequelize across 5 relational models with junction tables — a schema redesign, not a lift-and-shift
 
-### SSH Intrusion Monitor — Security tooling on EC2
-A `systemd`-managed service tailing `/var/log/auth.log` in real time, geolocating suspicious source IPs and firing SMTP alerts — plus a cron-driven bash-history digest for daily command auditing.
+`Jenkins` `S3/CloudFront` `MySQL` `Razorpay`
 
-- **Stack:** Python · systemd · Linux · Cron
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
 
-### TaskMaster — Terraform-provisioned deployment
-Flask/MongoDB Atlas app with infrastructure fully defined as code rather than console-clicked, shipped as a versioned image.
+**🔐 SimpleBank** — Zero-SSH, keyless AWS-native CI/CD
 
-- **Stack:** Terraform · Flask · MongoDB Atlas · Docker Hub
+Design goal: eliminate standing access, not just automate deploys.
 
----
+- **Problem** — long-lived SSH keys and static credentials are a standing attack surface
+- **Approach** — GitHub Actions via OIDC (no stored credentials), deploys through SSM Session Manager (no open SSH port), secrets from SSM Parameter Store, images through ECR
 
-## Reference work
+`Flask` `OIDC` `SSM` `ECR`
 
-**Kubernetes Internals Guide** — a 20-section, self-authored technical reference written while building the K3s cluster above, now used as training material at the institute where I teach.
+</td>
+<td width="50%" valign="top">
+
+**🎯 IQuiz Hub** — Production platform on ECS Fargate
+
+React/Node/MongoDB quiz platform with a proctored coding-exam module.
+
+- **Problem** — ECS deployments were failing silently under the circuit breaker
+- **Approach** — diagnosed and resolved circuit-breaker rollback failures and an nginx port-mapping misconfig in production — failures that only surface under real deploy conditions
+- **Features** — Monaco-based anti-cheat exam module, cascade-delete data integrity
+
+`ECS Fargate` `React` `MongoDB`
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary><b>More projects</b> — serverless blog, security tooling, IaC deployment</summary>
+
+<br/>
+
+**🌐 DevOps World** — fully serverless blog (`blog.devilhai.info`): S3 + CloudFront (OAC) + Route 53 + ACM for the frontend, Cognito for auth, SES for email, Lambda behind API Gateway for subscriber onboarding, DynamoDB for post metadata.
+
+**🚨 SSH Intrusion Monitor** — `systemd`-managed service tailing `/var/log/auth.log` in real time, geolocating suspicious source IPs and firing SMTP alerts, paired with a cron-driven bash-history audit digest.
+
+**☁️ TaskMaster** — Flask/MongoDB Atlas app with infrastructure fully defined in Terraform, shipped as a versioned Docker image.
+
+**📖 Kubernetes Internals Guide** — a 20-section, self-authored technical reference written while building the K3s cluster above, now used as training material.
+
+</details>
+
+<br/>
 
 ---
 
 ## GitHub activity
 
 <div align="center">
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=DEVENDRA-5470&show_icons=true&theme=tokyonight&hide_border=true" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DEVENDRA-5470&layout=compact&theme=tokyonight&hide_border=true" />
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=DEVENDRA-5470&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117" />
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DEVENDRA-5470&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117" />
+
+<br/>
+
+<img src="https://github-readme-streak-stats.herokuapp.com?user=DEVENDRA-5470&theme=tokyonight&hide_border=true&background=0d1117" />
 </div>
 
----
+<br/>
 
 <div align="center">
 
-Open to conversations on SRE practice, cloud architecture, or mentoring self-taught engineers.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=120&section=footer"/>
 
-[LinkedIn](https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE) · [Blog](https://blog.devilhai.info)
+<sub>Open to conversations on SRE practice, cloud architecture, or mentoring engineers.</sub>
+<br/>
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE">LinkedIn</a> · <a href="https://blog.devilhai.info">Blog</a>
 
 </div>
