@@ -16,7 +16,7 @@
 <tr>
 <td align="center" width="33%">3.5+ yrs<br/><sub>in production infra</sub></td>
 <td align="center" width="33%">7<br/><sub>systems designed & operated</sub></td>
-<td align="center" width="33%">Faridabad, IN<br/><sub>IST · UTC+5:30</sub></td>
+<td align="center" width="33%">Delhi, IN<br/><sub>IST · UTC+5:30</sub></td>
 </tr>
 </table>
 
