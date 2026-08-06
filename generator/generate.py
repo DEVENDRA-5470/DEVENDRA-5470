@@ -20,9 +20,13 @@ CONFIG_PATH = os.path.join(os.path.dirname(__file__), "..", "config.yml")
 with open(CONFIG_PATH, "r", encoding="utf-8") as f:
     CONFIG = yaml.safe_load(f)
 
-USERNAME = os.environ.get("GITHUB_USERNAME") or CONFIG["github"]["username"]
+USERNAME = os.environ.get("GITHUB_USERNAME") or CONFIG.get("username")
 TOKEN = os.environ.get("GITHUB_TOKEN")
-OUT_DIR = os.path.join(os.path.dirname(__file__), "..", CONFIG["output"]["dir"])
+OUT_DIR = os.path.join(os.path.dirname(__file__), "..", "assets", "generated")
+
+if not USERNAME:
+    print("ERROR: no username found in config.yml or GITHUB_USERNAME env var")
+    sys.exit(1)
 
 if not TOKEN:
     print("ERROR: GITHUB_TOKEN not set")
@@ -32,15 +36,15 @@ HEADERS = {"Authorization": f"Bearer {TOKEN}"}
 GRAPHQL_URL = "https://api.github.com/graphql"
 REST_URL = "https://api.github.com"
 
-_theme = CONFIG["theme"]
-ACCENT_A = _theme["accent_a"]
-ACCENT_B = _theme["accent_b"]
-BG = _theme["bg"]
-PANEL = _theme["panel"]
-BORDER = _theme["border"]
-TEXT_MAIN = _theme["text_main"]
-TEXT_MUTED = _theme["text_muted"]
-FONT = _theme["font"]
+_theme = CONFIG.get("theme", {})
+ACCENT_A = _theme.get("synapse_cyan", "#38BDF8")
+ACCENT_B = _theme.get("axon_amber", "#22D3A5")
+BG = _theme.get("void", "#080c14")
+PANEL = _theme.get("nebula", "#0d1520")
+BORDER = _theme.get("star_dust", "#1a2b3c")
+TEXT_MAIN = _theme.get("text_bright", "#f0f6fc")
+TEXT_MUTED = _theme.get("text_dim", "#94a3b8")
+FONT = "Fira Code, monospace"
 
 
 def gql(query: str) -> dict:
