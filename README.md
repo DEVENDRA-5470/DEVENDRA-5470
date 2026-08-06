@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/header.svg" width="850" alt="Devendra — Infrastructure Engineer"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=170&section=header&text=Devendra&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Infrastructure%20Engineer%20%7C%20Kubernetes%20%C2%B7%20AWS%20%C2%B7%20SRE&descAlignY=58&descSize=15"/>
 
 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE"><img src="https://img.shields.io/badge/LinkedIn-black?style=flat-square&logo=linkedin&logoColor=0A66C2"/></a>
 <a href="https://blog.devilhai.info"><img src="https://img.shields.io/badge/Blog-black?style=flat-square&logo=hashnode&logoColor=2962FF"/></a>
@@ -12,7 +12,13 @@
 
 <br/><br/>
 
-<img src="assets/stats.svg" width="850" alt="Stats"/>
+<table align="center" width="850">
+<tr>
+<td align="center" width="33%">3.5+ yrs<br/><sub>in production infra</sub></td>
+<td align="center" width="33%">7<br/><sub>systems designed &amp; operated</sub></td>
+<td align="center" width="33%">Delhi, IN<br/><sub>IST · UTC+5:30</sub></td>
+</tr>
+</table>
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=400&size=16&pause=1000&color=38BDF8&center=true&vCenter=true&width=850&lines=Designing+production-grade+Kubernetes+infrastructure;Building+zero-trust%2C+keyless+CI%2FCD+pipelines;3.5%2B+years+running+systems+that+don%27t+go+down"/>
 
@@ -48,21 +54,84 @@
 
 ## 🧰 &nbsp;Stack
 
-<div align="center">
-<img src="assets/techstack.svg" width="850" alt="Tech stack constellation"/>
-</div>
+<table align="center">
+<tr>
+<td align="center" width="120"><sub>☁️ CLOUD</sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=aws,azure&theme=dark" height="28"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/Route_53-8C4FFF?style=flat-square&logo=amazonroute53&logoColor=white"/>
+<img src="https://img.shields.io/badge/IAM_%2F_OIDC-FF9900?style=flat-square&logo=amazoniam&logoColor=white"/>
+<img src="https://img.shields.io/badge/Lambda-FF9900?style=flat-square&logo=awslambda&logoColor=white"/>
+<img src="https://img.shields.io/badge/ECS_Fargate-FF9900?style=flat-square&logo=amazonecs&logoColor=white"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub>📦 CONTAINERS &<br/>ORCHESTRATION</sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=docker,kubernetes&theme=dark" height="28"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/K3s-FFC61C?style=flat-square&logo=k3s&logoColor=black"/>
+<img src="https://img.shields.io/badge/Linkerd-2BEDA7?style=flat-square&logo=linkerd&logoColor=black"/>
+<img src="https://img.shields.io/badge/Helm-0F1689?style=flat-square&logo=helm&logoColor=white"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub>🔄 CI/CD &<br/>GITOPS</sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=jenkins,githubactions,git,github&theme=dark" height="28"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub>🌐 NETWORKING</sub></td>
+<td>
+<img src="https://img.shields.io/badge/Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white"/>
+<img src="https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white"/>
+<img src="https://img.shields.io/badge/cert--manager-326CE5?style=flat-square&logo=letsencrypt&logoColor=white"/>
+<img src="https://img.shields.io/badge/TCP%2FIP_%2F_DNS-333333?style=flat-square&logo=wireshark&logoColor=white"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub>📊 OBSERVABILITY</sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=prometheus,grafana&theme=dark" height="28"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/AlertManager-E6522C?style=flat-square&logo=prometheus&logoColor=white"/>
+<img src="https://img.shields.io/badge/Datadog-632CA6?style=flat-square&logo=datadog&logoColor=white"/>
+<img src="https://img.shields.io/badge/ELK_Stack-005571?style=flat-square&logo=elastic&logoColor=white"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub>🔐 SECURITY &<br/>SECRETS</sub></td>
+<td>
+<img src="https://img.shields.io/badge/HashiCorp_Vault-000000?style=flat-square&logo=vault&logoColor=white"/>
+<img src="https://img.shields.io/badge/AWS_SSM-FF9900?style=flat-square&logo=amazonaws&logoColor=white"/>
+<img src="https://img.shields.io/badge/AWS_IAM-FF9900?style=flat-square&logo=amazoniam&logoColor=white"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub>🏗️ IaC &<br/>CONFIG</sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=terraform,ansible&theme=dark" height="28"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub>💻 LANGUAGES &<br/>DATA</sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=python,bash,mysql,mongodb,redis&theme=dark" height="28"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub>🐧 OS</sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=linux&theme=dark" height="28"/>
+</td>
+</tr>
+</table>
 
 <br/>
 
 <img align="center" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
 
 ## 📁 &nbsp;Case studies
-
-<div align="center">
-<img src="assets/projects.svg" width="850" alt="Featured projects"/>
-</div>
-
-<br/>
 
 <sub>Each project below is infrastructure I designed, deployed, and operate — written as a case study because the decisions matter more than the tech list.</sub>
 
@@ -172,7 +241,7 @@ React/Node/MongoDB quiz platform with a proctored coding-exam module.
 
 <div align="center">
 
-<img src="assets/footer.svg" width="850" alt="Footer"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=110&section=footer"/>
 
 <sub>💬 &nbsp;Open to conversations on SRE practice, cloud architecture, or mentoring engineers.</sub>
 <br/>
