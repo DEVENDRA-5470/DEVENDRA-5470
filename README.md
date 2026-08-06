@@ -1,227 +1,96 @@
 <div align="center">
 
-<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE">
-  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
+# Devendra — Senior DevOps & SRE Engineer
 
-<a href="mailto:YOUR-EMAIL">
-  <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
-</a>
+Infrastructure engineer with 3.5+ years running production systems — designing and operating the Kubernetes, CI/CD, and observability stacks underneath them.
+
+[LinkedIn](https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE) · [Blog](https://blog.devilhai.info) · Faridabad, India (IST)
 
 </div>
 
-<br/>
+---
 
-## 👨‍💻 About Me
+## Focus areas
 
-I'm a **self-taught DevOps & SRE Engineer** with **3.5+ years of experience**, currently building and maintaining production infrastructure while also teaching AWS, DevOps, and backend engineering to the next generation of engineers.
+`Kubernetes & Service Mesh` · `AWS (ECS, Lambda, IAM/OIDC)` · `CI/CD (Jenkins, GitHub Actions, ArgoCD)` · `Observability (Prometheus/Grafana/AlertManager)` · `IaC (Terraform, Ansible)`
 
-- 🔭 **Currently working on:** Kubernetes service mesh work on `BookVault` & CI/CD infra for `Electronix`
-- 💼 **Day job:** Managing production infra + delivering AWS/DevOps/Python training at an institute
-- 📈 **Started coding:** December 2022 — no CS background, 100% self-taught
-- 🌍 **Based in:** Faridabad, India (IST, UTC+5:30)
-- ⚡ **Fun fact:** Went from zero coding experience to running production SRE workloads in under 4 years
+Currently: building out service mesh + GitOps delivery on a self-managed K3s cluster, and running production CI/CD for a MERN e-commerce platform on self-hosted Jenkins.
 
-<br/>
+---
 
-## 🛠️ Tech Stack
+## Case studies
 
-<div align="center">
-<table>
-<tr>
-<th align="center">Category</th>
-<th align="center">Tools</th>
-</tr>
-<tr>
-<td align="center"><b>☁️ Cloud & Infrastructure</b></td>
-<td align="center">
-<img src="https://skillicons.dev/icons?i=aws" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=azure" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=terraform" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=ansible" height="45"/>
-</td>
-</tr>
-<tr>
-<td align="center"><b>📦 Containers & Orchestration</b></td>
-<td align="center">
-<img src="https://skillicons.dev/icons?i=docker" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=kubernetes" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=jenkins" height="45"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-Argo_CD-EF7B4D?style=flat-square&logo=argo&logoColor=white" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-Linkerd-2BEDA7?style=flat-square&logo=linkerd&logoColor=black" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-Helm-0F1689?style=flat-square&logo=helm&logoColor=white" height="30"/>
-</td>
-</tr>
-<tr>
-<td align="center"><b>🌐 Networking</b></td>
-<td align="center">
-<img src="https://img.shields.io/badge/-Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-Nginx-009639?style=flat-square&logo=nginx&logoColor=white" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-DNS-4A90D9?style=flat-square&logo=cloudflare&logoColor=white" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-TCP%2FIP-333333?style=flat-square&logo=wireshark&logoColor=white" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-OSI_Model-333333?style=flat-square&logo=ieee&logoColor=white" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-Route_53-8C4FFF?style=flat-square&logo=amazonroute53&logoColor=white" height="30"/>
-</td>
-</tr>
-<tr>
-<td align="center"><b>📊 Monitoring & Observability</b></td>
-<td align="center">
-<img src="https://skillicons.dev/icons?i=prometheus" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=grafana" height="45"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-Datadog-632CA6?style=flat-square&logo=datadog&logoColor=white" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-AlertManager-E6522C?style=flat-square&logo=prometheus&logoColor=white" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-ELK_Stack-005571?style=flat-square&logo=elastic&logoColor=white" height="30"/>
-</td>
-</tr>
-<tr>
-<td align="center"><b>🔐 Security & Secrets</b></td>
-<td align="center">
-<img src="https://img.shields.io/badge/-HashiCorp_Vault-000000?style=flat-square&logo=vault&logoColor=white" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-AWS_IAM-FF9900?style=flat-square&logo=amazoniam&logoColor=white" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-cert--manager-326CE5?style=flat-square&logo=letsencrypt&logoColor=white" height="30"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/-SSM-FF9900?style=flat-square&logo=amazonaws&logoColor=white" height="30"/>
-</td>
-</tr>
-<tr>
-<td align="center"><b>💻 Languages & Data</b></td>
-<td align="center">
-<img src="https://skillicons.dev/icons?i=python" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=bash" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=mongodb" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=mysql" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=redis" height="45"/>
-</td>
-</tr>
-<tr>
-<td align="center"><b>🔄 CI/CD & Version Control</b></td>
-<td align="center">
-<img src="https://skillicons.dev/icons?i=git" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=github" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=githubactions" height="45"/>&nbsp;&nbsp;
-<img src="https://skillicons.dev/icons?i=linux" height="45"/>
-</td>
-</tr>
-</table>
-</div>
+Each project below is infrastructure I designed, deployed, and operate — not a tutorial clone. Written as case studies because the *decisions* matter more than the tech list.
 
-<br/>
+### BookVault — Self-managed Kubernetes cluster with service mesh & GitOps
+A 3-node K3s cluster (1 control plane, 2 workers) running a Django/MySQL app, built as hands-on infrastructure for CKA-level Kubernetes operations — not a managed EKS shortcut.
 
-## 🚀 Featured Projects — Tier 1 (Production-Grade Infra)
+- **Problem:** needed real operational exposure to cluster internals (scheduling, networking, RBAC) that managed Kubernetes abstracts away.
+- **Approach:** self-managed control plane; Linkerd service mesh instrumented for golden-signal metrics (latency, traffic, errors, saturation); Jenkins + ArgoCD for GitOps-style delivery; Traefik Ingress with cert-manager for TLS.
+- **Hardening:** RBAC, NetworkPolicy, HPA/VPA, node affinity, init containers, Redis caching layer.
+- **Observability:** Prometheus + Grafana + AlertManager wired to Telegram for on-call-style alerting.
+- **Stack:** K3s · Kubernetes · Linkerd · ArgoCD · Jenkins · Prometheus · Grafana · Traefik
 
-<table>
-<tr>
-<td width="50%">
+### Electronix — Distributed Jenkins CI/CD for a production MERN app
+Full-stack e-commerce platform where the interesting work is the delivery pipeline, not the storefront.
 
-### 🎯 IQuiz Hub — AWS ECS Fargate Platform
-Production quiz platform (React + Node.js/Express/MongoDB) on **AWS ECS Fargate**. Full CI/CD via GitHub Actions with versioned Docker releases. Google OAuth, Monaco-editor coding-exam module with anti-cheat + auto-submit, cascade-delete data integrity. Debugged and resolved ECS circuit-breaker failures and nginx port-mapping issues in production.
+- **Problem:** needed a CI/CD path with zero hardcoded credentials and a clean deploy story to S3/CloudFront.
+- **Approach:** dedicated SSH-based Jenkins agent on EC2, declarative pipeline (checkout → build → S3 upload → CloudFront invalidation), IAM role-based auth end to end, CloudFront Origin Access Control over an otherwise-public S3 bucket.
+- **Migration:** moved the backend data layer from MongoDB to MySQL/Sequelize across 5 relational models with junction tables — a schema redesign, not a lift-and-shift.
+- **Stack:** Jenkins · AWS S3/CloudFront · MySQL/Sequelize · React · Razorpay
 
-<img src="https://img.shields.io/badge/AWS_ECS_Fargate-FF9900?style=flat-square&logo=amazonecs&logoColor=white"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/> <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white"/> <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white"/> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white"/>
+### SimpleBank — Zero-SSH, keyless AWS-native CI/CD
+The design goal here was eliminating standing access, not just automating deploys.
 
-</td>
-<td width="50%">
+- **Problem:** long-lived SSH keys and static AWS credentials are a standing attack surface.
+- **Approach:** GitHub Actions authenticates via OIDC (no stored credentials), deploys reach EC2 through SSM Session Manager (no open SSH port at all), runtime secrets pulled from SSM Parameter Store, images shipped through ECR, orchestrated with Docker Compose across dual EC2 instances.
+- **Stack:** Flask · MySQL · AWS ECR/EC2/SSM · OIDC · GitHub Actions
 
-### 🏦 SimpleBank — Zero-SSH AWS-Native CI/CD
-Flask + MySQL app with a fully **keyless CI/CD pipeline**: GitHub Actions via OIDC (no long-lived credentials), deploys to EC2 through SSM Session Manager (zero SSH exposure), secrets from SSM Parameter Store, images through ECR, Docker Compose orchestration across dual EC2 instances.
+### IQuiz Hub — Production platform on ECS Fargate
+React/Node/MongoDB quiz platform, including a proctored coding-exam module (Monaco editor, anti-cheat, auto-submit) and cascade-delete data integrity across related collections.
 
-<img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white"/> <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/> <img src="https://img.shields.io/badge/AWS_ECR-FF9900?style=flat-square&logo=amazonaws&logoColor=white"/> <img src="https://img.shields.io/badge/EC2-FF9900?style=flat-square&logo=amazonec2&logoColor=white"/> <img src="https://img.shields.io/badge/OIDC-4A90D9?style=flat-square&logo=openid&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white"/>
+- **Problem:** ECS deployments were failing silently under the circuit breaker; a working container image doesn't guarantee a working service.
+- **Approach:** diagnosed and resolved ECS circuit-breaker rollback failures and an nginx port-mapping misconfiguration in production — the kind of failure that only shows up under real deploy conditions, not in local `docker run`.
+- **Delivery:** versioned Docker releases through GitHub Actions CI/CD.
+- **Stack:** AWS ECS Fargate · React · Node/Express · MongoDB · GitHub Actions
 
-</td>
-</tr>
-<tr>
-<td width="50%">
+### DevOps World — Serverless blog platform
+Built to prove out a fully serverless architecture end to end, not just host a blog.
 
-### ⚙️ Electronix — Enterprise Jenkins CI/CD
-Full-stack MERN e-commerce platform on a **self-hosted, distributed Jenkins architecture**: dedicated SSH-based Jenkins agent on EC2 (Java 21), declarative pipeline (Checkout → Build → S3 Upload → CloudFront Invalidation), IAM Role-based auth (zero hardcoded keys), CloudFront OAC over public S3. Migrated backend MongoDB → MySQL/Sequelize across 5 relational models with junction tables. Razorpay payments + Recharts analytics dashboard.
+- **Approach:** S3 + CloudFront (OAC) + Route 53 + ACM for the static frontend, Cognito for auth, SES for transactional email, a Lambda function behind API Gateway for subscriber onboarding, DynamoDB for post metadata.
+- **Stack:** S3 · CloudFront · Lambda · API Gateway · DynamoDB · Cognito · SES
 
-<img src="https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white"/> <img src="https://img.shields.io/badge/AWS_S3-569A31?style=flat-square&logo=amazons3&logoColor=white"/> <img src="https://img.shields.io/badge/CloudFront-FF9900?style=flat-square&logo=amazonaws&logoColor=white"/> <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/> <img src="https://img.shields.io/badge/Razorpay-0C2451?style=flat-square&logo=razorpay&logoColor=white"/>
+### SSH Intrusion Monitor — Security tooling on EC2
+A `systemd`-managed service tailing `/var/log/auth.log` in real time, geolocating suspicious source IPs and firing SMTP alerts — plus a cron-driven bash-history digest for daily command auditing.
 
-</td>
-<td width="50%">
+- **Stack:** Python · systemd · Linux · Cron
 
-### 📚 BookVault — K3s Cluster, Service Mesh & GitOps
-Django + MySQL app on a **self-managed, live 3-node K3s Kubernetes cluster** (`bookvault.devilhai.online`), instrumented with Prometheus + Grafana + AlertManager (Telegram alerting). Extended into a **Linkerd service mesh** tracking golden signal metrics, with **Jenkins + ArgoCD GitOps** delivery. Implements RBAC, NetworkPolicy, HPA/VPA, NodeAffinity, InitContainers, Redis caching, Traefik Ingress with cert-manager TLS — built as hands-on infra for CKA-level Kubernetes operations.
+### TaskMaster — Terraform-provisioned deployment
+Flask/MongoDB Atlas app with infrastructure fully defined as code rather than console-clicked, shipped as a versioned image.
 
-<img src="https://img.shields.io/badge/K3s-FFC61C?style=flat-square&logo=k3s&logoColor=black"/> <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white"/> <img src="https://img.shields.io/badge/Linkerd-2BEDA7?style=flat-square&logo=linkerd&logoColor=black"/> <img src="https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white"/> <img src="https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white"/> <img src="https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white"/> <img src="https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white"/> <img src="https://img.shields.io/badge/Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white"/>
+- **Stack:** Terraform · Flask · MongoDB Atlas · Docker Hub
 
-</td>
-</tr>
-</table>
+---
 
-<br/>
+## Reference work
 
-## 🔧 Featured Projects — Tier 2 (Infra Tooling & Automation)
+**Kubernetes Internals Guide** — a 20-section, self-authored technical reference written while building the K3s cluster above, now used as training material at the institute where I teach.
 
-<table>
-<tr>
-<td width="50%">
+---
 
-### 🌐 DevOps World — Serverless Blog Platform
-Fully serverless blog at `blog.devilhai.info`: **S3 + CloudFront (OAC) + Route 53 + ACM** for the static frontend, **Cognito** for auth, **SES** for email, **Lambda** (welcome-subscriber function) behind **API Gateway**, and **DynamoDB** for post metadata. Custom terminal-themed UI with a local Python publishing script.
-
-<img src="https://img.shields.io/badge/AWS_S3-569A31?style=flat-square&logo=amazons3&logoColor=white"/> <img src="https://img.shields.io/badge/CloudFront-FF9900?style=flat-square&logo=amazonaws&logoColor=white"/> <img src="https://img.shields.io/badge/Lambda-FF9900?style=flat-square&logo=awslambda&logoColor=white"/> <img src="https://img.shields.io/badge/DynamoDB-4053D6?style=flat-square&logo=amazondynamodb&logoColor=white"/> <img src="https://img.shields.io/badge/Cognito-DD344C?style=flat-square&logo=amazoncognito&logoColor=white"/>
-
-</td>
-<td width="50%">
-
-### 🚨 SSH Intrusion Monitor
-Security monitoring system on EC2: a `systemd`-managed service tails `/var/log/auth.log` in real time, geolocates suspicious IPs via ip-api.com, and fires Gmail SMTP alerts. Paired with a cron-driven bash-history digest tool for daily command audit summaries.
-
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/EC2-FF9900?style=flat-square&logo=amazonec2&logoColor=white"/> <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black"/> <img src="https://img.shields.io/badge/Cron-4A90D9?style=flat-square&logo=clockify&logoColor=white"/>
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-### ☁️ TaskMaster — Terraform-Provisioned App
-Flask + MongoDB Atlas task manager with infrastructure fully defined and provisioned via **Terraform** (EC2 deploy target), shipped as a versioned Docker Hub image (`deviliam/task-manager:v1`).
-
-<img src="https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white"/> <img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white"/> <img src="https://img.shields.io/badge/MongoDB_Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white"/> <img src="https://img.shields.io/badge/Docker_Hub-2496ED?style=flat-square&logo=docker&logoColor=white"/>
-
-</td>
-<td width="50%">
-
-### 📖 Kubernetes Learning Guide
-A 20-section, ~260KB self-authored technical reference on Kubernetes internals — written while building hands-on cluster experience, used as a personal + training resource.
-
-<img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white"/> <img src="https://img.shields.io/badge/Technical_Writing-4A90D9?style=flat-square&logo=markdown&logoColor=white"/>
-
-</td>
-</tr>
-</table>
-
-<br/>
-
-## 📊 GitHub Stats
+## GitHub activity
 
 <div align="center">
-
 <img height="165" src="https://github-readme-stats.vercel.app/api?username=DEVENDRA-5470&show_icons=true&theme=tokyonight&hide_border=true" />
 <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DEVENDRA-5470&layout=compact&theme=tokyonight&hide_border=true" />
-
-<br/>
-
-<img src="https://streak-stats.demolab.com?user=DEVENDRA-5470&theme=tokyonight&hide_border=true" />
-
 </div>
 
-<br/>
-
-## 📫 Let's Connect
+---
 
 <div align="center">
 
-I'm always happy to talk DevOps, SRE practices, cloud architecture, or mentoring self-taught engineers.
+Open to conversations on SRE practice, cloud architecture, or mentoring self-taught engineers.
 
-<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE">
-  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
-<a href="https://blog.devilhai.info">
-  <img src="https://img.shields.io/badge/Blog-devilhai.info-FF5722?style=for-the-badge&logo=hashnode&logoColor=white"/>
-</a>
-
-<br/><br/>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:2c5364,100:00c6ff&height=100&section=footer"/>
+[LinkedIn](https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE) · [Blog](https://blog.devilhai.info)
 
 </div>
