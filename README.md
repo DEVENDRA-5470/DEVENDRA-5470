@@ -14,7 +14,7 @@
 
 <br/><br/>
 
-<img src="https://raw.githubusercontent.com/DEVENDRA-5470/DEVENDRA-5470/output/github-contribution-grid-snake-dark.svg" width="100%"/>
+<img src="https://raw.githubusercontent.com/DEVENDRA-5470/DEVENDRA-5470/output/github-contribution-grid-snake-dark.svg" width="850"/>
 
 </div>
 
@@ -122,7 +122,7 @@
 ### Metrics
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/DEVENDRA-5470/DEVENDRA-5470/metrics/metrics.svg" width="100%"/>
+<img src="https://raw.githubusercontent.com/DEVENDRA-5470/DEVENDRA-5470/metrics/metrics.svg" width="850"/>
 </div>
 
 <br/>
