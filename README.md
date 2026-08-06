@@ -12,6 +12,11 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=38BDF8&center=true&vCenter=true&width=680&lines=Designing+production-grade+Kubernetes+infrastructure;Building+zero-trust%2C+keyless+CI%2FCD+pipelines;3.5%2B+years+running+systems+that+don%27t+go+down"/>
 
+<br/>
+
+<img src="https://komarev.com/ghpvc/?username=DEVENDRA-5470&label=Profile%20Views&color=38BDF8&style=flat-square"/>&nbsp;
+<img src="https://img.shields.io/badge/Status-Building%20in%20Production-2BEDA7?style=flat-square"/>
+
 </div>
 
 <br/>
@@ -115,7 +120,7 @@ Currently building out service mesh + GitOps delivery on a self-managed K3s clus
 
 <br/>
 
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
 
 ## Case studies
 
@@ -199,7 +204,7 @@ React/Node/MongoDB quiz platform with a proctored coding-exam module.
 
 <br/>
 
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
 
 ## GitHub activity
 
@@ -210,7 +215,18 @@ React/Node/MongoDB quiz platform with a proctored coding-exam module.
 <br/>
 
 <img src="https://github-readme-streak-stats.herokuapp.com?user=DEVENDRA-5470&theme=tokyonight&hide_border=true&background=0d1117" />
+
+<br/><br/>
+
+<img src="https://github-profile-trophy.vercel.app/?username=DEVENDRA-5470&theme=tokyonight&no-frame=true&no-bg=true&margin-w=8&row=1" />
+
+<br/>
+
+<img src="https://raw.githubusercontent.com/DEVENDRA-5470/DEVENDRA-5470/output/github-contribution-grid-snake-dark.svg" />
+
 </div>
+
+<sub>The animated grid above renders once the <code>snk</code> GitHub Action is set up on this profile repo — it walks a snake across your real contribution graph. One-time setup, then it auto-updates.</sub>
 
 <br/>
 
