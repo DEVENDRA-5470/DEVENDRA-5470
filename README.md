@@ -120,6 +120,14 @@ Currently building out service mesh + GitOps delivery on a self-managed K3s clus
 
 <br/>
 
+## Metrics
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/DEVENDRA-5470/DEVENDRA-5470/metrics/metrics.svg" width="100%"/>
+</div>
+
+<br/>
+
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
 
 ## Case studies
