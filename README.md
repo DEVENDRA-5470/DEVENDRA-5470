@@ -30,7 +30,9 @@
 
 <br/>
 
-### Focus
+<img align="center" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
+
+## 🎯 &nbsp;Focus
 
 <div align="center">
 
@@ -42,11 +44,13 @@
 
 <br/>
 
-### Stack
+<img align="center" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
+
+## 🧰 &nbsp;Stack
 
 <table align="center">
 <tr>
-<td align="center" width="120"><sub>CLOUD</sub></td>
+<td align="center" width="120"><sub>☁️ CLOUD</sub></td>
 <td>
 <img src="https://skillicons.dev/icons?i=aws,azure&theme=dark" height="28"/>&nbsp;&nbsp;
 <img src="https://img.shields.io/badge/Route_53-8C4FFF?style=flat-square&logo=amazonroute53&logoColor=white"/>
@@ -56,7 +60,7 @@
 </td>
 </tr>
 <tr>
-<td align="center"><sub>CONTAINERS &<br/>ORCHESTRATION</sub></td>
+<td align="center"><sub>📦 CONTAINERS &<br/>ORCHESTRATION</sub></td>
 <td>
 <img src="https://skillicons.dev/icons?i=docker,kubernetes&theme=dark" height="28"/>&nbsp;&nbsp;
 <img src="https://img.shields.io/badge/K3s-FFC61C?style=flat-square&logo=k3s&logoColor=black"/>
@@ -65,14 +69,14 @@
 </td>
 </tr>
 <tr>
-<td align="center"><sub>CI/CD &<br/>GITOPS</sub></td>
+<td align="center"><sub>🔄 CI/CD &<br/>GITOPS</sub></td>
 <td>
 <img src="https://skillicons.dev/icons?i=jenkins,githubactions,git,github&theme=dark" height="28"/>&nbsp;&nbsp;
 <img src="https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white"/>
 </td>
 </tr>
 <tr>
-<td align="center"><sub>NETWORKING</sub></td>
+<td align="center"><sub>🌐 NETWORKING</sub></td>
 <td>
 <img src="https://img.shields.io/badge/Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white"/>
 <img src="https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white"/>
@@ -81,7 +85,7 @@
 </td>
 </tr>
 <tr>
-<td align="center"><sub>OBSERVABILITY</sub></td>
+<td align="center"><sub>📊 OBSERVABILITY</sub></td>
 <td>
 <img src="https://skillicons.dev/icons?i=prometheus,grafana&theme=dark" height="28"/>&nbsp;&nbsp;
 <img src="https://img.shields.io/badge/AlertManager-E6522C?style=flat-square&logo=prometheus&logoColor=white"/>
@@ -90,7 +94,7 @@
 </td>
 </tr>
 <tr>
-<td align="center"><sub>SECURITY &<br/>SECRETS</sub></td>
+<td align="center"><sub>🔐 SECURITY &<br/>SECRETS</sub></td>
 <td>
 <img src="https://img.shields.io/badge/HashiCorp_Vault-000000?style=flat-square&logo=vault&logoColor=white"/>
 <img src="https://img.shields.io/badge/AWS_SSM-FF9900?style=flat-square&logo=amazonaws&logoColor=white"/>
@@ -98,19 +102,19 @@
 </td>
 </tr>
 <tr>
-<td align="center"><sub>IaC &<br/>CONFIG</sub></td>
+<td align="center"><sub>🏗️ IaC &<br/>CONFIG</sub></td>
 <td>
 <img src="https://skillicons.dev/icons?i=terraform,ansible&theme=dark" height="28"/>
 </td>
 </tr>
 <tr>
-<td align="center"><sub>LANGUAGES &<br/>DATA</sub></td>
+<td align="center"><sub>💻 LANGUAGES &<br/>DATA</sub></td>
 <td>
 <img src="https://skillicons.dev/icons?i=python,bash,mysql,mongodb,redis&theme=dark" height="28"/>
 </td>
 </tr>
 <tr>
-<td align="center"><sub>OS</sub></td>
+<td align="center"><sub>🐧 OS</sub></td>
 <td>
 <img src="https://skillicons.dev/icons?i=linux&theme=dark" height="28"/>
 </td>
@@ -119,17 +123,9 @@
 
 <br/>
 
-### Metrics
+<img align="center" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/DEVENDRA-5470/DEVENDRA-5470/metrics/metrics.svg" width="850"/>
-</div>
-
-<br/>
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
-
-### Case studies
+## 📁 &nbsp;Case studies
 
 <sub>Each project below is infrastructure I designed, deployed, and operate — written as a case study because the decisions matter more than the tech list.</sub>
 
@@ -139,7 +135,7 @@
 <tr>
 <td width="50%" valign="top">
 
-#### 🧩 BookVault
+#### 🧩 &nbsp;BookVault
 <sub>Self-managed K3s cluster, service mesh & GitOps</sub>
 
 A 3-node K3s cluster running Django/MySQL, built as hands-on infra for CKA-level operations — not a managed EKS shortcut.
@@ -154,7 +150,7 @@ A 3-node K3s cluster running Django/MySQL, built as hands-on infra for CKA-level
 </td>
 <td width="50%" valign="top">
 
-#### ⚙️ Electronix
+#### ⚙️ &nbsp;Electronix
 <sub>Distributed Jenkins CI/CD, production MERN app</sub>
 
 Full-stack e-commerce platform where the interesting work is the delivery pipeline.
@@ -170,7 +166,7 @@ Full-stack e-commerce platform where the interesting work is the delivery pipeli
 <tr>
 <td width="50%" valign="top">
 
-#### 🔐 SimpleBank
+#### 🔐 &nbsp;SimpleBank
 <sub>Zero-SSH, keyless AWS-native CI/CD</sub>
 
 Design goal: eliminate standing access, not just automate deploys.
@@ -183,7 +179,7 @@ Design goal: eliminate standing access, not just automate deploys.
 </td>
 <td width="50%" valign="top">
 
-#### 🎯 IQuiz Hub
+#### 🎯 &nbsp;IQuiz Hub
 <sub>Production platform on ECS Fargate</sub>
 
 React/Node/MongoDB quiz platform with a proctored coding-exam module.
@@ -199,25 +195,25 @@ React/Node/MongoDB quiz platform with a proctored coding-exam module.
 </table>
 
 <details>
-<summary><sub>More projects — serverless blog, security tooling, IaC deployment</sub></summary>
+<summary><sub>📂 &nbsp;More projects — serverless blog, security tooling, IaC deployment</sub></summary>
 
 <br/>
 
-<sub>**DevOps World** — fully serverless blog (`blog.devilhai.info`): S3 + CloudFront (OAC) + Route 53 + ACM for the frontend, Cognito for auth, SES for email, Lambda behind API Gateway for subscriber onboarding, DynamoDB for post metadata.
+<sub>🌐 &nbsp;**DevOps World** — fully serverless blog (`blog.devilhai.info`): S3 + CloudFront (OAC) + Route 53 + ACM for the frontend, Cognito for auth, SES for email, Lambda behind API Gateway for subscriber onboarding, DynamoDB for post metadata.
 
-**SSH Intrusion Monitor** — `systemd`-managed service tailing `/var/log/auth.log` in real time, geolocating suspicious source IPs and firing SMTP alerts, paired with a cron-driven bash-history audit digest.
+🚨 &nbsp;**SSH Intrusion Monitor** — `systemd`-managed service tailing `/var/log/auth.log` in real time, geolocating suspicious source IPs and firing SMTP alerts, paired with a cron-driven bash-history audit digest.
 
-**TaskMaster** — Flask/MongoDB Atlas app with infrastructure fully defined in Terraform, shipped as a versioned Docker image.
+☁️ &nbsp;**TaskMaster** — Flask/MongoDB Atlas app with infrastructure fully defined in Terraform, shipped as a versioned Docker image.
 
-**Kubernetes Internals Guide** — a 20-section, self-authored technical reference written while building the K3s cluster above, now used as training material.</sub>
+📖 &nbsp;**Kubernetes Internals Guide** — a 20-section, self-authored technical reference written while building the K3s cluster above, now used as training material.</sub>
 
 </details>
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
+<img align="center" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
 
-### GitHub activity
+## 📈 &nbsp;GitHub activity
 
 <div align="center">
 <img height="150" src="https://github-readme-stats.vercel.app/api?username=DEVENDRA-5470&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117" />
@@ -235,11 +231,13 @@ React/Node/MongoDB quiz platform with a proctored coding-exam module.
 
 <br/>
 
+<img align="center" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
+
 <div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=110&section=footer"/>
 
-<sub>Open to conversations on SRE practice, cloud architecture, or mentoring engineers.</sub>
+<sub>💬 &nbsp;Open to conversations on SRE practice, cloud architecture, or mentoring engineers.</sub>
 <br/>
 <sub><a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE">LinkedIn</a> · <a href="https://blog.devilhai.info">Blog</a></sub>
 
