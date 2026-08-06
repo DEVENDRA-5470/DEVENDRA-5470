@@ -7,15 +7,24 @@
 <a href="mailto:YOUR-EMAIL"><img src="https://img.shields.io/badge/Email-black?style=flat-square&logo=gmail&logoColor=EA4335"/></a>
 &nbsp;&nbsp;
 <img src="https://img.shields.io/badge/Status-Building%20in%20Production-2BEDA7?style=flat-square"/>
-<img src="https://img.shields.io/badge/Location-Faridabad%2C%20IN-38BDF8?style=flat-square"/>
+<img src="https://img.shields.io/badge/Location-DELHI%2C%20IN-38BDF8?style=flat-square"/>
 <img src="https://komarev.com/ghpvc/?username=DEVENDRA-5470&label=Profile%20Views&color=38BDF8&style=flat-square"/>
 
 <br/><br/>
+
+<table align="center" width="850">
+<tr>
+<td align="center" width="33%">3.5+ yrs<br/><sub>in production infra</sub></td>
+<td align="center" width="33%">7<br/><sub>systems designed & operated</sub></td>
+<td align="center" width="33%">Faridabad, IN<br/><sub>IST · UTC+5:30</sub></td>
+</tr>
+</table>
 
 <table width="850">
 <tr><td align="center">
 
 <sub>Infrastructure engineer designing and operating the Kubernetes, CI/CD, and observability stacks behind production systems — from self-managed K3s clusters and service meshes to zero-trust, keyless CI/CD pipelines running in AWS.</sub>
+
 
 </td></tr>
 </table>
@@ -32,13 +41,7 @@
 
 <br/>
 
-<table align="center" width="850">
-<tr>
-<td align="center" width="33%">3.5+ yrs<br/><sub>in production infra</sub></td>
-<td align="center" width="33%">7<br/><sub>systems designed & operated</sub></td>
-<td align="center" width="33%">Faridabad, IN<br/><sub>IST · UTC+5:30</sub></td>
-</tr>
-</table>
+
 
 <br/>
 
