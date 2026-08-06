@@ -40,13 +40,78 @@ Currently building out service mesh + GitOps delivery on a self-managed K3s clus
 
 ## Stack
 
-<div align="center">
-<img src="https://skillicons.dev/icons?i=aws,azure,terraform,ansible,docker,kubernetes,jenkins,python,bash,mongodb,mysql,redis,git,github,githubactions,linux&theme=dark" />
-</div>
-
-<div align="center">
-<sub>Service mesh: Linkerd &nbsp;·&nbsp; GitOps: ArgoCD &nbsp;·&nbsp; Ingress: Traefik + cert-manager &nbsp;·&nbsp; Secrets: HashiCorp Vault · SSM &nbsp;·&nbsp; Alerting: AlertManager · Datadog · ELK</sub>
-</div>
+<table align="center">
+<tr>
+<td align="center" width="130"><sub><b>CLOUD</b></sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=aws,azure&theme=dark" height="32"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/Route_53-8C4FFF?style=flat-square&logo=amazonroute53&logoColor=white"/>
+<img src="https://img.shields.io/badge/IAM_%2F_OIDC-FF9900?style=flat-square&logo=amazoniam&logoColor=white"/>
+<img src="https://img.shields.io/badge/Lambda-FF9900?style=flat-square&logo=awslambda&logoColor=white"/>
+<img src="https://img.shields.io/badge/ECS_Fargate-FF9900?style=flat-square&logo=amazonecs&logoColor=white"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub><b>CONTAINERS &<br/>ORCHESTRATION</b></sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=docker,kubernetes&theme=dark" height="32"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/K3s-FFC61C?style=flat-square&logo=k3s&logoColor=black"/>
+<img src="https://img.shields.io/badge/Linkerd-2BEDA7?style=flat-square&logo=linkerd&logoColor=black"/>
+<img src="https://img.shields.io/badge/Helm-0F1689?style=flat-square&logo=helm&logoColor=white"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub><b>CI/CD &<br/>GITOPS</b></sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=jenkins,githubactions,git,github&theme=dark" height="32"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub><b>NETWORKING</b></sub></td>
+<td>
+<img src="https://img.shields.io/badge/Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white"/>
+<img src="https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white"/>
+<img src="https://img.shields.io/badge/cert--manager-326CE5?style=flat-square&logo=letsencrypt&logoColor=white"/>
+<img src="https://img.shields.io/badge/TCP%2FIP_%2F_DNS-333333?style=flat-square&logo=wireshark&logoColor=white"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub><b>OBSERVABILITY</b></sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=prometheus,grafana&theme=dark" height="32"/>&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/AlertManager-E6522C?style=flat-square&logo=prometheus&logoColor=white"/>
+<img src="https://img.shields.io/badge/Datadog-632CA6?style=flat-square&logo=datadog&logoColor=white"/>
+<img src="https://img.shields.io/badge/ELK_Stack-005571?style=flat-square&logo=elastic&logoColor=white"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub><b>SECURITY &<br/>SECRETS</b></sub></td>
+<td>
+<img src="https://img.shields.io/badge/HashiCorp_Vault-000000?style=flat-square&logo=vault&logoColor=white"/>
+<img src="https://img.shields.io/badge/AWS_SSM-FF9900?style=flat-square&logo=amazonaws&logoColor=white"/>
+<img src="https://img.shields.io/badge/AWS_IAM-FF9900?style=flat-square&logo=amazoniam&logoColor=white"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub><b>IaC &<br/>CONFIG</b></sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=terraform,ansible&theme=dark" height="32"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub><b>LANGUAGES &<br/>DATA</b></sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=python,bash,mysql,mongodb,redis&theme=dark" height="32"/>
+</td>
+</tr>
+<tr>
+<td align="center"><sub><b>OS</b></sub></td>
+<td>
+<img src="https://skillicons.dev/icons?i=linux&theme=dark" height="32"/>
+</td>
+</tr>
+</table>
 
 <br/>
 
