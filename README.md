@@ -1,135 +1,50 @@
 <div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=170&section=header&text=Devendra&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Infrastructure%20Engineer%20%7C%20Kubernetes%20%C2%B7%20AWS%20%C2%B7%20SRE&descAlignY=58&descSize=15"/>
-
-<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE"><img src="https://img.shields.io/badge/LinkedIn-black?style=flat-square&logo=linkedin&logoColor=0A66C2"/></a>
-<a href="https://blog.devilhai.info"><img src="https://img.shields.io/badge/Blog-black?style=flat-square&logo=hashnode&logoColor=2962FF"/></a>
-<a href="mailto:YOUR-EMAIL"><img src="https://img.shields.io/badge/Email-black?style=flat-square&logo=gmail&logoColor=EA4335"/></a>
-&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/Status-Building%20in%20Production-2BEDA7?style=flat-square"/>
-<img src="https://img.shields.io/badge/Location-DELHI%2C%20IN-38BDF8?style=flat-square"/>
-<img src="https://komarev.com/ghpvc/?username=DEVENDRA-5470&label=Profile%20Views&color=38BDF8&style=flat-square"/>
-
-<br/><br/>
-
-<table align="center" width="850">
-<tr>
-<td align="center" width="33%">3.5+ yrs<br/><sub>in production infra</sub></td>
-<td align="center" width="33%">7<br/><sub>systems designed &amp; operated</sub></td>
-<td align="center" width="33%">Delhi, IN<br/><sub>IST · UTC+5:30</sub></td>
-</tr>
-</table>
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=400&size=16&pause=1000&color=38BDF8&center=true&vCenter=true&width=850&lines=Designing+production-grade+Kubernetes+infrastructure;Building+zero-trust%2C+keyless+CI%2FCD+pipelines;3.5%2B+years+running+systems+that+don%27t+go+down"/>
-
-<img src="https://raw.githubusercontent.com/DEVENDRA-5470/DEVENDRA-5470/output/github-contribution-grid-snake-dark.svg" width="850"/>
-
-<table width="850">
-<tr><td align="center">
-
-<sub>Infrastructure engineer designing and operating the Kubernetes, CI/CD, and observability stacks behind production systems — from self-managed K3s clusters and service meshes to zero-trust, keyless CI/CD pipelines running in AWS.</sub>
-
-</td></tr>
-</table>
-
+  <img src="./assets/header.svg" width="900" alt="Devendra — Infrastructure Engineer"/>
 </div>
 
 <br/>
-
-<img align="center" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
-
-## 🎯 &nbsp;Focus
 
 <div align="center">
 
-<sub>`Kubernetes & Service Mesh` &nbsp;·&nbsp; `AWS (ECS · Lambda · IAM/OIDC)` &nbsp;·&nbsp; `CI/CD (Jenkins · Actions · ArgoCD)` &nbsp;·&nbsp; `Observability (Prometheus/Grafana)` &nbsp;·&nbsp; `IaC (Terraform · Ansible)`</sub>
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE"><img src="https://img.shields.io/badge/-LinkedIn-080c14?style=for-the-badge&logo=linkedin&logoColor=38BDF8"/></a>
+<a href="https://blog.devilhai.info"><img src="https://img.shields.io/badge/-Blog-080c14?style=for-the-badge&logo=hashnode&logoColor=22D3A5"/></a>
+<a href="mailto:YOUR-EMAIL"><img src="https://img.shields.io/badge/-Email-080c14?style=for-the-badge&logo=gmail&logoColor=f87171"/></a>
+
+<sub><img src="https://komarev.com/ghpvc/?username=DEVENDRA-5470&label=Profile%20Views&color=080c14&style=for-the-badge"/></sub>
 
 </div>
 
-<sub>Currently building out service mesh + GitOps delivery on a self-managed K3s cluster, and running production CI/CD for a MERN e-commerce platform on self-hosted Jenkins.</sub>
+<br/>
+
+<div align="center">
+  <img src="./assets/stats-card.svg" width="900" alt="Mission Telemetry"/>
+</div>
 
 <br/>
 
-<img align="center" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/DEVENDRA-5470/DEVENDRA-5470/output/github-contribution-grid-snake-dark.svg" width="900"/>
+</div>
+
+<br/>
+
+## 🎯 &nbsp;Focus
+
+<sub>Infrastructure engineer designing and operating the Kubernetes, CI/CD, and observability stacks behind production systems — from self-managed K3s clusters and service meshes to zero-trust, keyless CI/CD pipelines running in AWS.</sub>
+
+<br/>
+
+Currently building out service mesh + GitOps delivery on a self-managed K3s cluster, and running production CI/CD for a MERN e-commerce platform on self-hosted Jenkins.
+
+<br/>
 
 ## 🧰 &nbsp;Stack
 
-<table align="center">
-<tr>
-<td align="center" width="120"><sub>☁️ CLOUD</sub></td>
-<td>
-<img src="https://skillicons.dev/icons?i=aws,azure&theme=dark" height="28"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/Route_53-8C4FFF?style=flat-square&logo=amazonroute53&logoColor=white"/>
-<img src="https://img.shields.io/badge/IAM_%2F_OIDC-FF9900?style=flat-square&logo=amazoniam&logoColor=white"/>
-<img src="https://img.shields.io/badge/Lambda-FF9900?style=flat-square&logo=awslambda&logoColor=white"/>
-<img src="https://img.shields.io/badge/ECS_Fargate-FF9900?style=flat-square&logo=amazonecs&logoColor=white"/>
-</td>
-</tr>
-<tr>
-<td align="center"><sub>📦 CONTAINERS &<br/>ORCHESTRATION</sub></td>
-<td>
-<img src="https://skillicons.dev/icons?i=docker,kubernetes&theme=dark" height="28"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/K3s-FFC61C?style=flat-square&logo=k3s&logoColor=black"/>
-<img src="https://img.shields.io/badge/Linkerd-2BEDA7?style=flat-square&logo=linkerd&logoColor=black"/>
-<img src="https://img.shields.io/badge/Helm-0F1689?style=flat-square&logo=helm&logoColor=white"/>
-</td>
-</tr>
-<tr>
-<td align="center"><sub>🔄 CI/CD &<br/>GITOPS</sub></td>
-<td>
-<img src="https://skillicons.dev/icons?i=jenkins,githubactions,git,github&theme=dark" height="28"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white"/>
-</td>
-</tr>
-<tr>
-<td align="center"><sub>🌐 NETWORKING</sub></td>
-<td>
-<img src="https://img.shields.io/badge/Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white"/>
-<img src="https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white"/>
-<img src="https://img.shields.io/badge/cert--manager-326CE5?style=flat-square&logo=letsencrypt&logoColor=white"/>
-<img src="https://img.shields.io/badge/TCP%2FIP_%2F_DNS-333333?style=flat-square&logo=wireshark&logoColor=white"/>
-</td>
-</tr>
-<tr>
-<td align="center"><sub>📊 OBSERVABILITY</sub></td>
-<td>
-<img src="https://skillicons.dev/icons?i=prometheus,grafana&theme=dark" height="28"/>&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/AlertManager-E6522C?style=flat-square&logo=prometheus&logoColor=white"/>
-<img src="https://img.shields.io/badge/Datadog-632CA6?style=flat-square&logo=datadog&logoColor=white"/>
-<img src="https://img.shields.io/badge/ELK_Stack-005571?style=flat-square&logo=elastic&logoColor=white"/>
-</td>
-</tr>
-<tr>
-<td align="center"><sub>🔐 SECURITY &<br/>SECRETS</sub></td>
-<td>
-<img src="https://img.shields.io/badge/HashiCorp_Vault-000000?style=flat-square&logo=vault&logoColor=white"/>
-<img src="https://img.shields.io/badge/AWS_SSM-FF9900?style=flat-square&logo=amazonaws&logoColor=white"/>
-<img src="https://img.shields.io/badge/AWS_IAM-FF9900?style=flat-square&logo=amazoniam&logoColor=white"/>
-</td>
-</tr>
-<tr>
-<td align="center"><sub>🏗️ IaC &<br/>CONFIG</sub></td>
-<td>
-<img src="https://skillicons.dev/icons?i=terraform,ansible&theme=dark" height="28"/>
-</td>
-</tr>
-<tr>
-<td align="center"><sub>💻 LANGUAGES &<br/>DATA</sub></td>
-<td>
-<img src="https://skillicons.dev/icons?i=python,bash,mysql,mongodb,redis&theme=dark" height="28"/>
-</td>
-</tr>
-<tr>
-<td align="center"><sub>🐧 OS</sub></td>
-<td>
-<img src="https://skillicons.dev/icons?i=linux&theme=dark" height="28"/>
-</td>
-</tr>
-</table>
+<div align="center">
+  <img src="./assets/tech-stack.svg" width="900" alt="Tech Stack"/>
+</div>
 
 <br/>
-
-<img align="center" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
 
 ## 📁 &nbsp;Case studies
 
@@ -217,8 +132,6 @@ React/Node/MongoDB quiz platform with a proctored coding-exam module.
 
 <br/>
 
-<img align="center" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
-
 ## 📈 &nbsp;GitHub activity
 
 <div align="center">
@@ -237,11 +150,7 @@ React/Node/MongoDB quiz platform with a proctored coding-exam module.
 
 <br/>
 
-<img align="center" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,100:2c5364&height=2&width=1000"/>
-
 <div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=110&section=footer"/>
 
 <sub>💬 &nbsp;Open to conversations on SRE practice, cloud architecture, or mentoring engineers.</sub>
 <br/>
