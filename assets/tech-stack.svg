@@ -1,0 +1,48 @@
+<svg width="900" height="330" viewBox="0 0 900 330" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e14"/>
+      <stop offset="100%" stop-color="#0d1b2a"/>
+    </linearGradient>
+    <linearGradient id="accent3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#22D3A5"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="330" rx="10" fill="url(#bg3)" stroke="#1a2b3c" stroke-width="1"/>
+  <text x="30" y="34" font-family="Fira Code, monospace" font-size="13" fill="#4b6478">// stack.yaml</text>
+
+  <g font-family="Fira Code, monospace" font-size="13">
+
+    <!-- row template: label pill + tags -->
+    <rect x="30" y="52" width="120" height="26" rx="13" fill="#0d2b26" stroke="#1c4a3d"/>
+    <text x="90" y="69" text-anchor="middle" fill="#22D3A5">CLOUD</text>
+    <text x="165" y="70" fill="#cbd5e1">AWS · Azure · Route53 · IAM/OIDC · Lambda · ECS Fargate</text>
+
+    <rect x="30" y="92" width="120" height="26" rx="13" fill="#0d2340" stroke="#1c3a5c"/>
+    <text x="90" y="109" text-anchor="middle" fill="#38BDF8">ORCHESTRATION</text>
+    <text x="165" y="110" fill="#cbd5e1">Docker · Kubernetes · K3s · Linkerd · Helm</text>
+
+    <rect x="30" y="132" width="120" height="26" rx="13" fill="#2a1f3d" stroke="#4a3a68"/>
+    <text x="90" y="149" text-anchor="middle" fill="#c4b5fd">CI/CD</text>
+    <text x="165" y="150" fill="#cbd5e1">Jenkins · GitHub Actions · ArgoCD · Git</text>
+
+    <rect x="30" y="172" width="120" height="26" rx="13" fill="#3d2a1f" stroke="#684a3a"/>
+    <text x="90" y="189" text-anchor="middle" fill="#fbbf24">NETWORKING</text>
+    <text x="165" y="190" fill="#cbd5e1">Traefik · Nginx · cert-manager · TCP/IP · DNS</text>
+
+    <rect x="30" y="212" width="120" height="26" rx="13" fill="#0d2b26" stroke="#1c4a3d"/>
+    <text x="90" y="229" text-anchor="middle" fill="#22D3A5">OBSERVABILITY</text>
+    <text x="165" y="230" fill="#cbd5e1">Prometheus · Grafana · AlertManager · Datadog · ELK</text>
+
+    <rect x="30" y="252" width="120" height="26" rx="13" fill="#3d1f1f" stroke="#683a3a"/>
+    <text x="90" y="269" text-anchor="middle" fill="#f87171">SECURITY</text>
+    <text x="165" y="270" fill="#cbd5e1">HashiCorp Vault · AWS SSM · IAM</text>
+
+    <rect x="30" y="292" width="120" height="26" rx="13" fill="#0d2340" stroke="#1c3a5c"/>
+    <text x="90" y="309" text-anchor="middle" fill="#38BDF8">LANG / DATA</text>
+    <text x="165" y="310" fill="#cbd5e1">Python · Bash · MySQL · MongoDB · Redis · Terraform · Ansible</text>
+
+  </g>
+</svg>
