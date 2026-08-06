@@ -1,0 +1,49 @@
+<svg width="900" height="170" viewBox="0 0 900 170" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e14"/>
+      <stop offset="100%" stop-color="#0d1b2a"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#22D3A5"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="170" rx="10" fill="url(#bg2)" stroke="#1a2b3c" stroke-width="1"/>
+
+  <text x="30" y="34" font-family="Fira Code, monospace" font-size="13" fill="#4b6478">// mission telemetry</text>
+
+  <!-- 4 stat blocks -->
+  <g font-family="Fira Code, monospace">
+
+    <!-- block 1 -->
+    <rect x="30" y="52" width="195" height="95" rx="8" fill="#0d1520" stroke="#1a2b3c"/>
+    <rect x="30" y="52" width="4" height="95" rx="2" fill="url(#accent2)"/>
+    <text x="52" y="90" font-size="30" font-weight="700" fill="#f0f6fc">3.5+</text>
+    <text x="52" y="112" font-size="12" fill="#94a3b8">years in</text>
+    <text x="52" y="128" font-size="12" fill="#94a3b8">production infra</text>
+
+    <!-- block 2 -->
+    <rect x="243" y="52" width="195" height="95" rx="8" fill="#0d1520" stroke="#1a2b3c"/>
+    <rect x="243" y="52" width="4" height="95" rx="2" fill="url(#accent2)"/>
+    <text x="265" y="90" font-size="30" font-weight="700" fill="#f0f6fc">07</text>
+    <text x="265" y="112" font-size="12" fill="#94a3b8">systems designed</text>
+    <text x="265" y="128" font-size="12" fill="#94a3b8">& operated</text>
+
+    <!-- block 3 -->
+    <rect x="456" y="52" width="195" height="95" rx="8" fill="#0d1520" stroke="#1a2b3c"/>
+    <rect x="456" y="52" width="4" height="95" rx="2" fill="url(#accent2)"/>
+    <text x="478" y="90" font-size="22" font-weight="700" fill="#f0f6fc">99.98%</text>
+    <text x="478" y="112" font-size="12" fill="#94a3b8">avg cluster</text>
+    <text x="478" y="128" font-size="12" fill="#94a3b8">uptime</text>
+
+    <!-- block 4 -->
+    <rect x="669" y="52" width="201" height="95" rx="8" fill="#0d1520" stroke="#1a2b3c"/>
+    <rect x="669" y="52" width="4" height="95" rx="2" fill="url(#accent2)"/>
+    <text x="691" y="90" font-size="20" font-weight="700" fill="#f0f6fc">IST</text>
+    <text x="691" y="112" font-size="12" fill="#94a3b8">Faridabad, IN</text>
+    <text x="691" y="128" font-size="12" fill="#94a3b8">UTC+5:30</text>
+
+  </g>
+</svg>
