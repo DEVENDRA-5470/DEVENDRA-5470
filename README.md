@@ -17,7 +17,6 @@
 I'm a **self-taught DevOps & SRE Engineer** with **3.5+ years of experience**, currently building and maintaining production infrastructure while also teaching AWS, DevOps, and backend engineering to the next generation of engineers.
 
 - 🔭 **Currently working on:** Kubernetes service mesh work on `BookVault` & CI/CD infra for `Electronix`
-- 🌱 **Currently learning / pursuing:** CKA (Certified Kubernetes Administrator) & AZ-104 (Azure Administrator)
 - 💼 **Day job:** Managing production infra + delivering AWS/DevOps/Python training at an institute
 - 📈 **Started coding:** December 2022 — no CS background, 100% self-taught
 - 🌍 **Based in:** Faridabad, India (IST, UTC+5:30)
