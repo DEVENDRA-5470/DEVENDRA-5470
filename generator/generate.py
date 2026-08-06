@@ -13,10 +13,16 @@ In CI, GITHUB_TOKEN is provided automatically by the workflow.
 import os
 import sys
 import requests
+import yaml
 
-USERNAME = os.environ.get("GITHUB_USERNAME", "DEVENDRA-5470")
+CONFIG_PATH = os.path.join(os.path.dirname(__file__), "..", "config.yml")
+
+with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+    CONFIG = yaml.safe_load(f)
+
+USERNAME = os.environ.get("GITHUB_USERNAME") or CONFIG["github"]["username"]
 TOKEN = os.environ.get("GITHUB_TOKEN")
-OUT_DIR = os.path.join(os.path.dirname(__file__), "..", "assets", "generated")
+OUT_DIR = os.path.join(os.path.dirname(__file__), "..", CONFIG["output"]["dir"])
 
 if not TOKEN:
     print("ERROR: GITHUB_TOKEN not set")
@@ -26,14 +32,15 @@ HEADERS = {"Authorization": f"Bearer {TOKEN}"}
 GRAPHQL_URL = "https://api.github.com/graphql"
 REST_URL = "https://api.github.com"
 
-ACCENT_A = "#38BDF8"
-ACCENT_B = "#22D3A5"
-BG = "#080c14"
-PANEL = "#0d1520"
-BORDER = "#1a2b3c"
-TEXT_MAIN = "#f0f6fc"
-TEXT_MUTED = "#94a3b8"
-FONT = "Fira Code, monospace"
+_theme = CONFIG["theme"]
+ACCENT_A = _theme["accent_a"]
+ACCENT_B = _theme["accent_b"]
+BG = _theme["bg"]
+PANEL = _theme["panel"]
+BORDER = _theme["border"]
+TEXT_MAIN = _theme["text_main"]
+TEXT_MUTED = _theme["text_muted"]
+FONT = _theme["font"]
 
 
 def gql(query: str) -> dict:
