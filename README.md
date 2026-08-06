@@ -20,6 +20,14 @@
 </tr>
 </table>
 
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=400&size=16&pause=1000&color=38BDF8&center=true&vCenter=true&width=850&lines=Designing+production-grade+Kubernetes+infrastructure;Building+zero-trust%2C+keyless+CI%2FCD+pipelines;3.5%2B+years+running+systems+that+don%27t+go+down"/>
+
+<br/><br/>
+
+<img src="https://raw.githubusercontent.com/DEVENDRA-5470/DEVENDRA-5470/output/github-contribution-grid-snake-dark.svg" width="850"/>
+
 <table width="850">
 <tr><td align="center">
 
@@ -28,14 +36,6 @@
 
 </td></tr>
 </table>
-
-<br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=400&size=16&pause=1000&color=38BDF8&center=true&vCenter=true&width=850&lines=Designing+production-grade+Kubernetes+infrastructure;Building+zero-trust%2C+keyless+CI%2FCD+pipelines;3.5%2B+years+running+systems+that+don%27t+go+down"/>
-
-<br/><br/>
-
-<img src="https://raw.githubusercontent.com/DEVENDRA-5470/DEVENDRA-5470/output/github-contribution-grid-snake-dark.svg" width="850"/>
 
 </div>
 
