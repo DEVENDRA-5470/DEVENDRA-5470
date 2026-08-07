@@ -101,6 +101,10 @@ languages:
     - "HTML"
     - "CSS"
     - "Makefile"
+    - "C"
+    - "C++"
+    - "Cython"
+    - "PowerShell"
   max_display: 12
   # Manual languages to add (useful for training/work repos not attributed to this GitHub account)
   manual:
