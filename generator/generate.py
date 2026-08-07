@@ -111,9 +111,19 @@ def fetch_stats() -> dict:
         for name, size in langs.items():
             lang_totals[name] = lang_totals.get(name, 0) + size
 
-    palette = [ACCENT_A, ACCENT_B, "#c4b5fd", "#fbbf24", "#f87171"]
+    # merge in manually-weighted languages from config.yml (e.g. work/training repos
+    # not attributed to this GitHub account), then apply exclude list + max_display
+    _lang_cfg = CONFIG.get("languages", {})
+    for name, weight in _lang_cfg.get("manual", {}).items():
+        lang_totals[name] = lang_totals.get(name, 0) + weight
+
+    exclude = set(_lang_cfg.get("exclude", []))
+    lang_totals = {k: v for k, v in lang_totals.items() if k not in exclude}
+
+    max_display = _lang_cfg.get("max_display", 8)
+    palette = [ACCENT_A, ACCENT_B, "#c4b5fd", "#fbbf24", "#f87171", "#f472b6", "#a3e635", "#818cf8"]
     total_size = sum(lang_totals.values()) or 1
-    top_langs = sorted(lang_totals.items(), key=lambda kv: kv[1], reverse=True)[:5]
+    top_langs = sorted(lang_totals.items(), key=lambda kv: kv[1], reverse=True)[:max_display]
     lang_pct = [
         (name, round(size / total_size * 100, 1), palette[i % len(palette)])
         for i, (name, size) in enumerate(top_langs)
@@ -170,18 +180,26 @@ def render_languages(stats: dict) -> str:
     y = 55
     bar_x = 160
     bar_max_w = 620
-    for name, pct, color in stats["languages"]:
+    for i, (name, pct, color) in enumerate(stats["languages"]):
         bar_w = max(4, bar_max_w * pct / 100)
+        delay = i * 0.12  # cascading stagger, one row after another
         rows.append(f"""
         <text x="30" y="{y+13}" font-family="{FONT}" font-size="13" fill="{TEXT_MUTED}">{name}</text>
         <rect x="{bar_x}" y="{y}" width="{bar_max_w}" height="18" rx="4" fill="{PANEL}" stroke="{BORDER}"/>
-        <rect x="{bar_x}" y="{y}" width="{bar_w}" height="18" rx="4" fill="{color}"/>
-        <text x="{bar_x + bar_max_w + 15}" y="{y+13}" font-family="{FONT}" font-size="12" fill="{TEXT_MAIN}">{pct}%</text>
+        <rect x="{bar_x}" y="{y}" width="0" height="18" rx="4" fill="{color}" filter="url(#barGlow)">
+          <animate attributeName="width" from="0" to="{bar_w:.2f}" dur="1.1s" begin="{delay:.2f}s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+        </rect>
+        <text x="{bar_x + bar_max_w + 15}" y="{y+13}" font-family="{FONT}" font-size="12" fill="{TEXT_MAIN}" opacity="0">{pct}%
+          <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay + 0.9:.2f}s" fill="freeze"/>
+        </text>
         """)
         y += 34
 
     height = y + 25
     return f"""<svg width="900" height="{height}" viewBox="0 0 900 {height}" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="barGlow"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
   <rect width="900" height="{height}" rx="10" fill="{BG}" stroke="{BORDER}"/>
   <text x="30" y="34" font-family="{FONT}" font-size="13" fill="#4b6478">// language telemetry — live from GitHub API</text>
   <g>{''.join(rows)}</g>
