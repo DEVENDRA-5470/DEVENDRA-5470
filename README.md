@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/header.svg" width="900" alt="Devendra — Infrastructure Engineer"/>
+  <img src="./assets/generated/galaxy-header.svg" width="900" alt="Devendra — Infrastructure Engineer"/>
 </div>
 
 <br/>
@@ -17,7 +17,13 @@
 <br/>
 
 <div align="center">
-  <img src="./assets/stats-card.svg" width="900" alt="Mission Telemetry"/>
+  <img src="./assets/generated/stats-card.svg" width="900" alt="Mission Telemetry"/>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="./assets/generated/languages.svg" width="900" alt="Language Telemetry"/>
 </div>
 
 <br/>
@@ -41,7 +47,7 @@ Currently building out service mesh + GitOps delivery on a self-managed K3s clus
 ## 🧰 &nbsp;Stack
 
 <div align="center">
-  <img src="./assets/tech-stack.svg" width="900" alt="Tech Stack"/>
+  <img src="./assets/generated/tech-stack.svg" width="900" alt="Tech Stack"/>
 </div>
 
 <br/>
