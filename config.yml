@@ -101,12 +101,17 @@ languages:
     - "HTML"
     - "CSS"
     - "Makefile"
-  max_display: 8
+  max_display: 12
   # Manual languages to add (useful for training/work repos not attributed to this GitHub account)
   manual:
     Python: 25000
+    JavaScript: 14000
     Bash: 15000
     YAML: 12000
     Terraform: 10000
+    Django: 9000
+    Flask: 9000
+    FastAPI: 8000
+    React: 7000
     Groovy: 8000
     Dockerfile: 6000
