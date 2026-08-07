@@ -52,7 +52,7 @@
 <ellipse cx="450.0" cy="270.0" rx="320" ry="140" fill="none" stroke="#22D3A5" stroke-width="1" opacity="0.35"/>
 
   <circle cx="450.0" cy="270.0" r="34" fill="url(#core)" filter="url(#glow)"/>
-  <text x="450.0" y="279.0" text-anchor="middle" font-family="Fira Code, monospace" font-size="24" font-weight="700" fill="#082f49">D</text>
+  <text x="450.0" y="278.0" text-anchor="middle" font-family="Fira Code, monospace" font-size="17" font-weight="700" fill="#082f49">Dev</text>
   <circle cx="450.0" cy="270.0" r="34" fill="none" stroke="#38BDF8" stroke-width="2" opacity="0.8">
     <animate attributeName="r" values="34;54;34" dur="5s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.8;0;0.8" dur="5s" repeatCount="indefinite"/>
