@@ -56,22 +56,16 @@ def gql(query: str) -> dict:
     return data["data"]
 
 
-def fetch_stats() -> dict:
+def rest_get(path: str, params: dict | None = None):
+    resp = requests.get(f"{REST_URL}{path}", headers=HEADERS, params=params or {}, timeout=30)
+    resp.raise_for_status()
+    return resp.json()
+
+
+def fetch_contributions() -> dict:
     query = f"""
     {{
       user(login: "{USERNAME}") {{
-        name
-        followers {{ totalCount }}
-        repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {{
-          totalCount
-          nodes {{
-            stargazers {{ totalCount }}
-            forkCount
-            languages(first: 5, orderBy: {{field: SIZE, direction: DESC}}) {{
-              edges {{ size node {{ name color }} }}
-            }}
-          }}
-        }}
         contributionsCollection {{
           contributionCalendar {{ totalContributions }}
           totalCommitContributions
@@ -81,35 +75,58 @@ def fetch_stats() -> dict:
       }}
     }}
     """
-    data = gql(query)["user"]
+    data = gql(query)["user"]["contributionsCollection"]
+    return {
+        "contributions_year": data["contributionCalendar"]["totalContributions"],
+        "commits": data["totalCommitContributions"],
+        "prs": data["totalPullRequestContributions"],
+        "issues": data["totalIssueContributions"],
+    }
 
-    stars = sum(r["stargazers"]["totalCount"] for r in data["repositories"]["nodes"])
-    forks = sum(r["forkCount"] for r in data["repositories"]["nodes"])
 
+def fetch_stats() -> dict:
+    # repos, stars, forks via REST (works reliably with the default Actions token)
+    repos = []
+    page = 1
+    while True:
+        batch = rest_get(f"/users/{USERNAME}/repos", {"type": "owner", "per_page": 100, "page": page})
+        if not batch:
+            break
+        repos.extend(batch)
+        page += 1
+        if page > 5:  # safety cap
+            break
+
+    repos = [r for r in repos if not r.get("fork")]
+    stars = sum(r.get("stargazers_count", 0) for r in repos)
+    forks = sum(r.get("forks_count", 0) for r in repos)
+
+    # language breakdown via REST, capped to first 20 repos to stay within rate limits
     lang_totals: dict[str, int] = {}
-    lang_colors: dict[str, str] = {}
-    for r in data["repositories"]["nodes"]:
-        for edge in r["languages"]["edges"]:
-            name = edge["node"]["name"]
-            lang_totals[name] = lang_totals.get(name, 0) + edge["size"]
-            lang_colors[name] = edge["node"]["color"] or ACCENT_A
+    for r in repos[:20]:
+        try:
+            langs = rest_get(f"/repos/{USERNAME}/{r['name']}/languages")
+        except requests.HTTPError:
+            continue
+        for name, size in langs.items():
+            lang_totals[name] = lang_totals.get(name, 0) + size
 
+    palette = [ACCENT_A, ACCENT_B, "#c4b5fd", "#fbbf24", "#f87171"]
     total_size = sum(lang_totals.values()) or 1
     top_langs = sorted(lang_totals.items(), key=lambda kv: kv[1], reverse=True)[:5]
-    lang_pct = [(name, round(size / total_size * 100, 1), lang_colors[name]) for name, size in top_langs]
+    lang_pct = [
+        (name, round(size / total_size * 100, 1), palette[i % len(palette)])
+        for i, (name, size) in enumerate(top_langs)
+    ]
 
-    cc = data["contributionsCollection"]
+    contrib = fetch_contributions()
 
     return {
-        "repos": data["repositories"]["totalCount"],
+        "repos": len(repos),
         "stars": stars,
         "forks": forks,
-        "followers": data["followers"]["totalCount"],
-        "contributions_year": cc["contributionCalendar"]["totalContributions"],
-        "commits": cc["totalCommitContributions"],
-        "prs": cc["totalPullRequestContributions"],
-        "issues": cc["totalIssueContributions"],
         "languages": lang_pct,
+        **contrib,
     }
 
 
