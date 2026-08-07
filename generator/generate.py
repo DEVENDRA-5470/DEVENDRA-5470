@@ -244,7 +244,7 @@ def render_languages(stats: dict) -> str:
     rows = []
     y = 55
     bar_x = 160
-    bar_max_w = 620
+    bar_max_w = 700  # widened since the percentage label column is gone
     for i, (name, pct, color) in enumerate(stats["languages"]):
         bar_w = max(4, bar_max_w * pct / 100)
         delay = i * 0.12  # cascading stagger, one row after another
@@ -254,9 +254,6 @@ def render_languages(stats: dict) -> str:
         <rect x="{bar_x}" y="{y}" width="0" height="18" rx="4" fill="{color}" filter="url(#barGlow)">
           <animate attributeName="width" from="0" to="{bar_w:.2f}" dur="1.1s" begin="{delay:.2f}s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
-        <text x="{bar_x + bar_max_w + 15}" y="{y+13}" font-family="{FONT}" font-size="12" fill="{TEXT_MAIN}" opacity="0">{pct}%
-          <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="{delay + 0.9:.2f}s" fill="freeze"/>
-        </text>
         """)
         y += 34
 
