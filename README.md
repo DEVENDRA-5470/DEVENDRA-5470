@@ -22,8 +22,10 @@
 
 <br/>
 
+## 🧰 &nbsp;Stack
+
 <div align="center">
-  <img src="./assets/generated/languages.svg" width="100%" alt="Language Telemetry"/>
+  <img src="./assets/generated/tech-stack.svg" width="100%" alt="Tech Stack"/>
 </div>
 
 <br/>
@@ -41,14 +43,6 @@
 <br/>
 
 Currently building out service mesh + GitOps delivery on a self-managed K3s cluster, and running production CI/CD for a MERN e-commerce platform on self-hosted Jenkins.
-
-<br/>
-
-## 🧰 &nbsp;Stack
-
-<div align="center">
-  <img src="./assets/generated/tech-stack.svg" width="100%" alt="Tech Stack"/>
-</div>
 
 <br/>
 
