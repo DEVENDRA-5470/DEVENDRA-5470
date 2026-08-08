@@ -131,6 +131,113 @@ React/Node/MongoDB quiz platform with a proctored coding-exam module.
 
 <br/>
 
+## 🚀 &nbsp;Capstone initiatives
+
+<sub>Production-grade infrastructure patterns I'm building out to cover the full SRE/platform surface area — resilience, cost, security, and delivery.</sub>
+
+<br/>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+#### 🌍 &nbsp;Multi-Region Disaster Recovery
+<sub>Active-passive AWS DR architecture</sub>
+
+<sub>*Approach* — active-passive infrastructure across two AWS regions using Route 53 health-check-based failover, RDS cross-region read replicas, and S3 cross-region replication for critical data<br/>
+*Outcome* — RTO under 15 minutes, RPO under 5 minutes, validated through simulated region-failure drills</sub>
+
+<sub>`Route 53` `RDS` `S3 CRR`</sub>
+
+</td>
+<td width="50%" valign="top">
+
+#### 🛠️ &nbsp;GitOps Internal Developer Platform
+<sub>Self-service microservice provisioning</sub>
+
+<sub>*Approach* — ArgoCD for GitOps delivery + Backstage as developer portal, letting engineers provision a new microservice from a single YAML manifest<br/>
+*Outcome* — onboarding time cut from 2-3 days to under 30 minutes, standardized namespace/CI/monitoring setup across services</sub>
+
+<sub>`ArgoCD` `Backstage` `Kubernetes`</sub>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### 💰 &nbsp;FinOps Cost Dashboard
+<sub>Real-time cloud cost visibility</sub>
+
+<sub>*Approach* — AWS Cost Explorer API + Lambda + Grafana for real-time anomaly detection, AWS Config tagging enforcement, automated idle-resource shutdown<br/>
+*Outcome* — ~25% reduction in monthly AWS spend, cost anomalies surfaced within 24 hours, 100% tagging compliance</sub>
+
+<sub>`Cost Explorer` `Lambda` `Grafana`</sub>
+
+</td>
+<td width="50%" valign="top">
+
+#### 🔄 &nbsp;Zero-Downtime Canary Deployments
+<sub>Metrics-gated progressive delivery</sub>
+
+<sub>*Approach* — Argo Rollouts on Kubernetes with canary stages gated by Prometheus metrics (error rate, p99 latency) before traffic promotion<br/>
+*Outcome* — zero-downtime releases with automated rollback on SLO breach, blast radius capped at 5% traffic per stage</sub>
+
+<sub>`Argo Rollouts` `Prometheus` `Kubernetes`</sub>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### 📊 &nbsp;Centralized Observability Stack
+<sub>Unified logs, metrics & traces</sub>
+
+<sub>*Approach* — Grafana Loki (logs), Tempo (tracing), Prometheus (metrics) unified across a multi-service architecture with SLO/SLI dashboards and alerting<br/>
+*Outcome* — ~40% reduction in mean-time-to-detection via centralized cross-service trace correlation</sub>
+
+<sub>`Loki` `Tempo` `Prometheus`</sub>
+
+</td>
+<td width="50%" valign="top">
+
+#### 🔒 &nbsp;Zero-Trust Secrets & Security Pipeline
+<sub>Dynamic secrets + CI/CD security gates</sub>
+
+<sub>*Approach* — HashiCorp Vault integrated with Kubernetes for dynamic, short-lived secrets; Trivy (container scanning) + SonarQube (code quality) as mandatory CI/CD gates<br/>
+*Outcome* — zero hardcoded secrets in codebases, critical/high vulnerabilities blocked pre-deployment</sub>
+
+<sub>`Vault` `Trivy` `SonarQube`</sub>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### 📡 &nbsp;Event-Driven Data Pipeline
+<sub>Real-time Kafka streaming</sub>
+
+<sub>*Approach* — Apache Kafka with producer/consumer microservices and Kafka Connect for DB sync, monitored via Kafka Exporter + Grafana<br/>
+*Outcome* — sub-second end-to-end latency at 99.9% delivery reliability, services decoupled for independent scaling</sub>
+
+<sub>`Kafka` `Kafka Connect` `Grafana`</sub>
+
+</td>
+<td width="50%" valign="top">
+
+#### 💥 &nbsp;Chaos Engineering Platform
+<sub>Automated resilience testing</sub>
+
+<sub>*Approach* — LitmusChaos on Kubernetes running scheduled pod-kill, network-latency, and node-failure experiments against production-like environments<br/>
+*Outcome* — 3+ critical single-points-of-failure identified pre-incident, automated resilience scoring reports</sub>
+
+<sub>`LitmusChaos` `Kubernetes`</sub>
+
+</td>
+</tr>
+</table>
+
+<br/>
+
 ## 📈 &nbsp;GitHub activity
 
 <div align="center">
