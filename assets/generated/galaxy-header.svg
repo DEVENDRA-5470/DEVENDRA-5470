@@ -73,7 +73,7 @@
     <circle r="5" fill="#38BDF8" filter="url(#glow)">
       <animateMotion dur="42s" begin="-8.4s" repeatCount="indefinite" rotate="0" path="M 580.0,270.0 A 130,55 0 1,1,320.0,270.0 A 130,55 0 1,1,580.0,270.0"/>
     </circle>
-    <text text-anchor="start" dx="10" dy="4" font-family="Fira Code, monospace" font-size="11" fill="#38BDF8">K3s
+    <text text-anchor="start" dx="10" dy="4" font-family="Fira Code, monospace" font-size="11" fill="#38BDF8">K8s
       <animateMotion dur="42s" begin="-8.4s" repeatCount="indefinite" rotate="0" path="M 580.0,270.0 A 130,55 0 1,1,320.0,270.0 A 130,55 0 1,1,580.0,270.0"/>
     </text>
   </g>
