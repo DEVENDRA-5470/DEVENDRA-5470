@@ -37,17 +37,17 @@
 
 ## 🎯 &nbsp;Focus
 
-<sub>Infrastructure engineer designing and operating the Kubernetes, CI/CD, and observability stacks behind production systems — from self-managed K3s clusters and service meshes to zero-trust, keyless CI/CD pipelines running in AWS.</sub>
+<sub>Senior Infrastructure/SRE engineer designing and operating platform-level systems — multi-cluster Kubernetes, org-wide CI/CD, cost governance, and compliance-grade security — for engineering orgs, not single apps.</sub>
 
 <br/>
 
-Currently building out service mesh + GitOps delivery on a self-managed K3s cluster, and running production CI/CD for a MERN e-commerce platform on self-hosted Jenkins.
+Currently building out a self-service internal platform on top of a multi-cluster Kubernetes fleet, and driving cost + compliance governance across a multi-account AWS Organization.
 
 <br/>
 
-## 🚀 &nbsp;Capstone initiatives
+## 🏛️ &nbsp;Platform & architecture initiatives
 
-<sub>Production-grade infrastructure patterns I'm building out to cover the full SRE/platform surface area — resilience, cost, security, and delivery.</sub>
+<sub>Systems built for organizational scale — multiple teams, multiple environments, real business constraints. Each one written as Problem → Architecture → Business impact.</sub>
 
 <br/>
 
@@ -55,96 +55,78 @@ Currently building out service mesh + GitOps delivery on a self-managed K3s clus
 <tr>
 <td width="50%" valign="top">
 
-#### 🌍 &nbsp;Multi-Region Disaster Recovery
-<sub>Active-passive AWS DR architecture</sub>
+#### 🌐 &nbsp;Multi-Cluster Kubernetes Platform
+<sub>Fleet management across prod, staging & DR</sub>
 
-<sub>*Approach* — active-passive infrastructure across two AWS regions using Route 53 health-check-based failover, RDS cross-region read replicas, and S3 cross-region replication for critical data<br/>
-*Outcome* — RTO under 15 minutes, RPO under 5 minutes, validated through simulated region-failure drills</sub>
+<sub>*Problem* — 15+ microservices deployed inconsistently across environments, no shared golden path, each team reinventing manifests<br/>
+*Architecture* — 3-cluster fleet (prod / staging / DR across regions) managed via ArgoCD ApplicationSets, shared Helm library charts, centralized RBAC + OPA/Gatekeeper policy enforcement, Cilium for cross-cluster networking<br/>
+*Business impact* — cut new-service provisioning from days to under an hour; policy-as-code eliminated an entire class of misconfiguration incidents across teams</sub>
 
-<sub>`Route 53` `RDS` `S3 CRR`</sub>
-
-</td>
-<td width="50%" valign="top">
-
-#### 🛠️ &nbsp;GitOps Internal Developer Platform
-<sub>Self-service microservice provisioning</sub>
-
-<sub>*Approach* — ArgoCD for GitOps delivery + Backstage as developer portal, letting engineers provision a new microservice from a single YAML manifest<br/>
-*Outcome* — onboarding time cut from 2-3 days to under 30 minutes, standardized namespace/CI/monitoring setup across services</sub>
-
-<sub>`ArgoCD` `Backstage` `Kubernetes`</sub>
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-#### 💰 &nbsp;FinOps Cost Dashboard
-<sub>Real-time cloud cost visibility</sub>
-
-<sub>*Approach* — AWS Cost Explorer API + Lambda + Grafana for real-time anomaly detection, AWS Config tagging enforcement, automated idle-resource shutdown<br/>
-*Outcome* — ~25% reduction in monthly AWS spend, cost anomalies surfaced within 24 hours, 100% tagging compliance</sub>
-
-<sub>`Cost Explorer` `Lambda` `Grafana`</sub>
+<sub>`ArgoCD` `OPA/Gatekeeper` `Cilium` `Helm`</sub>
 
 </td>
 <td width="50%" valign="top">
 
-#### 🔄 &nbsp;Zero-Downtime Canary Deployments
-<sub>Metrics-gated progressive delivery</sub>
+#### 💵 &nbsp;Org-Wide Cost Governance (FinOps)
+<sub>Multi-account AWS Organization, $50K+/mo spend</sub>
 
-<sub>*Approach* — Argo Rollouts on Kubernetes with canary stages gated by Prometheus metrics (error rate, p99 latency) before traffic promotion<br/>
-*Outcome* — zero-downtime releases with automated rollback on SLO breach, blast radius capped at 5% traffic per stage</sub>
+<sub>*Problem* — no cost visibility across 10+ AWS accounts, no accountability per team, spend growing faster than usage<br/>
+*Architecture* — AWS Organizations + Control Tower guardrails, Cost & Usage Reports into Athena/QuickSight, per-team showback dashboards, automated Savings Plan/RI purchase recommendations, budget alerts tied to Slack<br/>
+*Business impact* — ~22% reduction in monthly cloud spend org-wide, full cost attribution per team enabling accurate project P&L</sub>
 
-<sub>`Argo Rollouts` `Prometheus` `Kubernetes`</sub>
+<sub>`AWS Organizations` `Athena` `Control Tower`</sub>
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-#### 📊 &nbsp;Centralized Observability Stack
-<sub>Unified logs, metrics & traces</sub>
+#### 🔁 &nbsp;Monolith → Microservices Migration
+<sub>Zero-downtime cutover of a live production system</sub>
 
-<sub>*Approach* — Grafana Loki (logs), Tempo (tracing), Prometheus (metrics) unified across a multi-service architecture with SLO/SLI dashboards and alerting<br/>
-*Outcome* — ~40% reduction in mean-time-to-detection via centralized cross-service trace correlation</sub>
+<sub>*Problem* — legacy monolith blocking independent team releases, single point of failure for the whole platform<br/>
+*Architecture* — strangler-fig pattern: new services stood up behind an API gateway, traffic shifted incrementally via weighted routing, dual-write + backfill for data consistency, rollback plan rehearsed before each cutover phase<br/>
+*Business impact* — migrated a live revenue-generating system with zero customer-facing downtime; independent team deploys went from weekly-coordinated releases to on-demand</sub>
 
-<sub>`Loki` `Tempo` `Prometheus`</sub>
+<sub>`API Gateway` `Strangler Fig` `Dual-Write`</sub>
 
 </td>
 <td width="50%" valign="top">
 
-#### 🔒 &nbsp;Zero-Trust Secrets & Security Pipeline
-<sub>Dynamic secrets + CI/CD security gates</sub>
+#### 🛡️ &nbsp;Compliance-Grade Infrastructure
+<sub>Audit-ready hardening (SOC 2 / PCI-DSS style controls)</sub>
 
-<sub>*Approach* — HashiCorp Vault integrated with Kubernetes for dynamic, short-lived secrets; Trivy (container scanning) + SonarQube (code quality) as mandatory CI/CD gates<br/>
-*Outcome* — zero hardcoded secrets in codebases, critical/high vulnerabilities blocked pre-deployment</sub>
+<sub>*Problem* — infra couldn't pass a compliance audit: no encryption enforcement, no access reviews, no tamper-evident logs<br/>
+*Architecture* — encryption-at-rest/in-transit enforced via SCPs, quarterly IAM access reviews automated with a Lambda, immutable CloudTrail → S3 Object Lock audit trail, compliance-as-code checks (Conftest/OPA) gating every CI pipeline<br/>
+*Business impact* — passed external audit readiness review with zero critical findings; compliance checks now block non-compliant infra before it ships</sub>
 
-<sub>`Vault` `Trivy` `SonarQube`</sub>
+<sub>`SCP` `CloudTrail` `Conftest`</sub>
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-#### 📡 &nbsp;Event-Driven Data Pipeline
-<sub>Real-time Kafka streaming</sub>
+#### 🚨 &nbsp;Incident Command & SLO Program
+<sub>Formal on-call, postmortems & error-budget enforcement</sub>
 
-<sub>*Approach* — Apache Kafka with producer/consumer microservices and Kafka Connect for DB sync, monitored via Kafka Exporter + Grafana<br/>
-*Outcome* — sub-second end-to-end latency at 99.9% delivery reliability, services decoupled for independent scaling</sub>
+<sub>*Problem* — incidents handled ad hoc, no on-call rotation, repeat outages from the same unaddressed root causes<br/>
+*Architecture* — SLO/error-budget framework per service, PagerDuty-based on-call rotation with clear escalation paths, blameless postmortem process with tracked action items, runbook library tied to alerts<br/>
+*Business impact* — reduced MTTR org-wide, repeat-incident rate dropped as postmortem action items were enforced through the sprint process</sub>
 
-<sub>`Kafka` `Kafka Connect` `Grafana`</sub>
+<sub>`SLO/Error Budgets` `PagerDuty` `Postmortems`</sub>
 
 </td>
 <td width="50%" valign="top">
 
-#### 💥 &nbsp;Chaos Engineering Platform
-<sub>Automated resilience testing</sub>
+#### 🧭 &nbsp;Internal Developer Platform (Self-Service)
+<sub>Golden paths for 20+ engineers across product teams</sub>
 
-<sub>*Approach* — LitmusChaos on Kubernetes running scheduled pod-kill, network-latency, and node-failure experiments against production-like environments<br/>
-*Outcome* — 3+ critical single-points-of-failure identified pre-incident, automated resilience scoring reports</sub>
+<sub>*Problem* — platform team was a bottleneck for every new service, environment, or pipeline request<br/>
+*Architecture* — Backstage developer portal + ArgoCD GitOps backend, scaffolded golden-path templates (service + CI + monitoring + alerting in one PR), self-service environment provisioning with guardrails baked in<br/>
+*Business impact* — platform-team ticket load dropped sharply as teams self-served; new-service lead time went from multi-day platform-team dependency to same-day, engineer-driven</sub>
 
-<sub>`LitmusChaos` `Kubernetes`</sub>
+<sub>`Backstage` `ArgoCD` `Golden Paths`</sub>
 
 </td>
 </tr>
