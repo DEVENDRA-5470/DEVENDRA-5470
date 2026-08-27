@@ -8,7 +8,7 @@
         <text x="30" y="68" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Python</text>
         <rect x="160" y="55" width="700" height="18" rx="4" fill="#0d1520" stroke="#1a2b3c"/>
         <rect x="160" y="55" width="0" height="18" rx="4" fill="#38BDF8" filter="url(#barGlow)">
-          <animate attributeName="width" from="0" to="464.80" dur="1.1s" begin="0.00s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+          <animate attributeName="width" from="0" to="464.10" dur="1.1s" begin="0.00s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
         
         <text x="30" y="102" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Jupyter Notebook</text>
@@ -29,49 +29,49 @@
           <animate attributeName="width" from="0" to="4.00" dur="1.1s" begin="0.36s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
         
-        <text x="30" y="204" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">YAML</text>
+        <text x="30" y="204" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">HCL</text>
         <rect x="160" y="191" width="700" height="18" rx="4" fill="#0d1520" stroke="#1a2b3c"/>
         <rect x="160" y="191" width="0" height="18" rx="4" fill="#f87171" filter="url(#barGlow)">
           <animate attributeName="width" from="0" to="4.00" dur="1.1s" begin="0.48s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
         
-        <text x="30" y="238" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Terraform</text>
+        <text x="30" y="238" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">YAML</text>
         <rect x="160" y="225" width="700" height="18" rx="4" fill="#0d1520" stroke="#1a2b3c"/>
         <rect x="160" y="225" width="0" height="18" rx="4" fill="#f472b6" filter="url(#barGlow)">
           <animate attributeName="width" from="0" to="4.00" dur="1.1s" begin="0.60s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
         
-        <text x="30" y="272" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Django</text>
+        <text x="30" y="272" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Terraform</text>
         <rect x="160" y="259" width="700" height="18" rx="4" fill="#0d1520" stroke="#1a2b3c"/>
         <rect x="160" y="259" width="0" height="18" rx="4" fill="#a3e635" filter="url(#barGlow)">
           <animate attributeName="width" from="0" to="4.00" dur="1.1s" begin="0.72s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
         
-        <text x="30" y="306" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Flask</text>
+        <text x="30" y="306" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Django</text>
         <rect x="160" y="293" width="700" height="18" rx="4" fill="#0d1520" stroke="#1a2b3c"/>
         <rect x="160" y="293" width="0" height="18" rx="4" fill="#818cf8" filter="url(#barGlow)">
           <animate attributeName="width" from="0" to="4.00" dur="1.1s" begin="0.84s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
         
-        <text x="30" y="340" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">FastAPI</text>
+        <text x="30" y="340" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Flask</text>
         <rect x="160" y="327" width="700" height="18" rx="4" fill="#0d1520" stroke="#1a2b3c"/>
         <rect x="160" y="327" width="0" height="18" rx="4" fill="#38BDF8" filter="url(#barGlow)">
           <animate attributeName="width" from="0" to="4.00" dur="1.1s" begin="0.96s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
         
-        <text x="30" y="374" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Groovy</text>
+        <text x="30" y="374" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">FastAPI</text>
         <rect x="160" y="361" width="700" height="18" rx="4" fill="#0d1520" stroke="#1a2b3c"/>
         <rect x="160" y="361" width="0" height="18" rx="4" fill="#22D3A5" filter="url(#barGlow)">
           <animate attributeName="width" from="0" to="4.00" dur="1.1s" begin="1.08s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
         
-        <text x="30" y="408" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Dockerfile</text>
+        <text x="30" y="408" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Groovy</text>
         <rect x="160" y="395" width="700" height="18" rx="4" fill="#0d1520" stroke="#1a2b3c"/>
         <rect x="160" y="395" width="0" height="18" rx="4" fill="#c4b5fd" filter="url(#barGlow)">
           <animate attributeName="width" from="0" to="4.00" dur="1.1s" begin="1.20s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
         
-        <text x="30" y="442" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Batchfile</text>
+        <text x="30" y="442" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Dockerfile</text>
         <rect x="160" y="429" width="700" height="18" rx="4" fill="#0d1520" stroke="#1a2b3c"/>
         <rect x="160" y="429" width="0" height="18" rx="4" fill="#fbbf24" filter="url(#barGlow)">
           <animate attributeName="width" from="0" to="4.00" dur="1.1s" begin="1.32s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
