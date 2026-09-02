@@ -8,19 +8,19 @@
         <text x="30" y="68" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Python</text>
         <rect x="160" y="55" width="700" height="18" rx="4" fill="#0d1520" stroke="#1a2b3c"/>
         <rect x="160" y="55" width="0" height="18" rx="4" fill="#38BDF8" filter="url(#barGlow)">
-          <animate attributeName="width" from="0" to="364.00" dur="1.1s" begin="0.00s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+          <animate attributeName="width" from="0" to="687.40" dur="1.1s" begin="0.00s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
         
-        <text x="30" y="102" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Jupyter Notebook</text>
+        <text x="30" y="102" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">JavaScript</text>
         <rect x="160" y="89" width="700" height="18" rx="4" fill="#0d1520" stroke="#1a2b3c"/>
         <rect x="160" y="89" width="0" height="18" rx="4" fill="#22D3A5" filter="url(#barGlow)">
-          <animate attributeName="width" from="0" to="330.40" dur="1.1s" begin="0.12s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+          <animate attributeName="width" from="0" to="7.70" dur="1.1s" begin="0.12s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
         
-        <text x="30" y="136" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">JavaScript</text>
+        <text x="30" y="136" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Jupyter Notebook</text>
         <rect x="160" y="123" width="700" height="18" rx="4" fill="#0d1520" stroke="#1a2b3c"/>
         <rect x="160" y="123" width="0" height="18" rx="4" fill="#c4b5fd" filter="url(#barGlow)">
-          <animate attributeName="width" from="0" to="4.20" dur="1.1s" begin="0.24s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+          <animate attributeName="width" from="0" to="4.00" dur="1.1s" begin="0.24s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
         </rect>
         
         <text x="30" y="170" font-family="Fira Code, monospace" font-size="13" fill="#94a3b8">Bash</text>
