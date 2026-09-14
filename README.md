@@ -6,7 +6,7 @@
 
 <div align="center">
 
-<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE"><img src="https://img.shields.io/badge/-LinkedIn-080c14?style=for-the-badge&logo=linkedin&logoColor=38BDF8"/></a>
+<a href="https://www.linkedin.com/in/devendra--yadav/"><img src="https://img.shields.io/badge/-LinkedIn-080c14?style=for-the-badge&logo=linkedin&logoColor=38BDF8"/></a>
 <a href="mailto:YOUR-EMAIL"><img src="https://img.shields.io/badge/-Email-080c14?style=for-the-badge&logo=gmail&logoColor=f87171"/></a>
 
 <sub><img src="https://komarev.com/ghpvc/?username=DEVENDRA-5470&label=Profile%20Views&color=080c14&style=for-the-badge"/></sub>
