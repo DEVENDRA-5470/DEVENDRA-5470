@@ -136,7 +136,7 @@ Currently building out a self-service internal platform on top of a multi-cluste
 
 ## ⚙️ &nbsp;Infrastructure in production
 
-<sub>Systems I've designed, deployed, and currently operate — written as case studies because the decisions matter more than the tech list.</sub>
+<sub>Systems I've designed, deployed, and currently operate. Each is written as Context → Design decisions → Operations, because the trade-offs matter more than the tool list.</sub>
 
 <br/>
 
@@ -144,77 +144,100 @@ Currently building out a self-service internal platform on top of a multi-cluste
 <tr>
 <td width="50%" valign="top">
 
-#### 🧩 &nbsp;BookVault
-<sub>Self-managed K3s cluster, service mesh & GitOps</sub>
+#### 🏦 &nbsp;LedgerLine: Fintech Workload on Self-Managed Kubernetes
+<sub>kubeadm cluster · stateful workloads · alert-pipeline validation</sub>
 
-A 3-node K3s cluster running Django/MySQL, built as hands-on infra for CKA-level operations — not a managed EKS shortcut.
+<sub>*Context*: a Java banking backend with a React frontend and PostgreSQL, running on a cluster I bootstrapped and operate myself with kubeadm on EC2, without EKS<br/>
+*Design decisions*: workload isolation through node pinning (stateful DB tier, app tier, and a dedicated monitoring node, so observability survives an app-tier failure); Postgres as a StatefulSet behind a headless Service with credentials in Secrets; Calico CNI; NGINX Ingress on hostNetwork serving `bank.` and `api.bank.` domains, with CORS enforced at the edge<br/>
+*Operations*: kube-prometheus-stack via Helm with custom PrometheusRules (OOMKilled, fast CrashLoop) and Alertmanager routing that sends noise to a null receiver and actionable alerts to the on-call channel. I ran deliberate failure injection (load-driven OOM and crash loops) to prove the detect → alert path end to end before trusting it<br/>
+*Access*: the API server is reached only through an SSH tunnel, with no public 6443 exposure</sub>
 
-<sub>*Problem* — needed real exposure to scheduling, networking, and RBAC that managed Kubernetes abstracts away<br/>
-*Approach* — self-managed control plane, Linkerd mesh tracking golden-signal metrics, Jenkins + ArgoCD GitOps delivery, Traefik + cert-manager TLS<br/>
-*Hardening* — RBAC, NetworkPolicy, HPA/VPA, node affinity, init containers, Redis caching<br/>
-*Observability* — Prometheus + Grafana + AlertManager → Telegram</sub>
-
-<sub>`K3s` `Linkerd` `ArgoCD` `Jenkins` `Prometheus`</sub>
+<sub>`kubeadm` `Calico` `StatefulSet` `NGINX Ingress` `kube-prometheus-stack`</sub>
 
 </td>
 <td width="50%" valign="top">
 
-#### ⚙️ &nbsp;Electronix
-<sub>Distributed Jenkins CI/CD, production MERN app</sub>
+#### 🎟️ &nbsp;TicketFlow: Live Booking Platform & Decomposition Strategy
+<sub>Production FastAPI/PostgreSQL system · evidence-driven architecture</sub>
 
-Full-stack e-commerce platform where the interesting work is the delivery pipeline.
+<sub>*Context*: a ticket-booking platform serving live traffic, covering events, seat inventory, bookings, cancellations, payments and notifications, with 139+ commits of continuous delivery<br/>
+*Design decisions*: the booking path runs as a single ACID transaction (user/event validation, seat locking, ticket, add-ons and payment) so the system can never oversell a seat. Schema evolves through Alembic migrations, and auth uses JWT with bcrypt<br/>
+*Architecture stance*: I chose a modular monolith over premature microservices. Service extraction (auth first, then notifications) and Kafka are gated on load-test and failure-test evidence, and a transactional outbox will be in place before any broker, so no event is lost during the split<br/>
+*Operations*: containerised and deployed to a VM, with load-test tooling kept in the repo as part of the release process</sub>
 
-<sub>*Problem* — needed zero hardcoded credentials and a clean deploy path to S3/CloudFront<br/>
-*Approach* — dedicated SSH-based Jenkins agent, declarative pipeline (build → S3 → CloudFront invalidation), IAM role-based auth, CloudFront OAC over private S3<br/>
-*Migration* — moved backend from MongoDB to MySQL/Sequelize across 5 relational models with junction tables — a schema redesign, not a lift-and-shift</sub>
-
-<sub>`Jenkins` `S3/CloudFront` `MySQL` `Razorpay`</sub>
+<sub>`FastAPI` `PostgreSQL` `Alembic` `Outbox Pattern` `Docker`</sub>
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-#### 🔐 &nbsp;SimpleBank
-<sub>Zero-SSH, keyless AWS-native CI/CD</sub>
+#### 🧩 &nbsp;BookVault: Service Mesh & GitOps on K3s
+<sub>3-node cluster · Linkerd · ArgoCD · autoscaling</sub>
 
-Design goal: eliminate standing access, not just automate deploys.
+<sub>*Context*: a Django/MySQL application on a self-operated 3-node K3s cluster, where I own scheduling, networking, TLS and scaling end to end<br/>
+*Design decisions*: Linkerd mTLS mesh for golden-signal visibility. Because the mesh's sidecar distorted pod-level CPU metrics, I moved HPA to `ContainerResource` metrics, a conflict that only shows up when you run a mesh and autoscaling together. Delivery is Jenkins CI → ArgoCD GitOps, and TLS is Traefik + cert-manager<br/>
+*Hardening*: least-privilege RBAC, default-deny NetworkPolicy, node affinity, taints/tolerations, init containers for dependency ordering, and Redis caching to cut DB load<br/>
+*Operations*: Prometheus + Grafana + Alertmanager, with alerts routed to a chat channel</sub>
 
-<sub>*Problem* — long-lived SSH keys and static credentials are a standing attack surface<br/>
-*Approach* — GitHub Actions via OIDC (no stored credentials), deploys through SSM Session Manager (no open SSH port), secrets from SSM Parameter Store, images through ECR</sub>
-
-<sub>`Flask` `OIDC` `SSM` `ECR`</sub>
+<sub>`K3s` `Linkerd` `ArgoCD` `HPA/VPA` `cert-manager`</sub>
 
 </td>
 <td width="50%" valign="top">
 
-#### 🎯 &nbsp;IQuiz Hub
-<sub>Production platform on ECS Fargate</sub>
+#### ⚙️ &nbsp;Electronix: Distributed CI/CD & 3-Tier AWS Architecture
+<sub>Jenkins controller/agent · S3/CloudFront · EC2 · RDS</sub>
 
-React/Node/MongoDB quiz platform with a proctored coding-exam module.
+<sub>*Context*: a full-stack e-commerce platform with payments (Razorpay), deployed on a decoupled 3-tier architecture: S3 + CloudFront frontend, Dockerised backend behind Nginx on EC2, and RDS MySQL<br/>
+*Design decisions*: builds run on a dedicated SSH-attached Jenkins agent, never on the controller; credentials come from IAM roles with zero static keys; the S3 origin stays private behind CloudFront OAC; the declarative pipeline handles build → S3 sync → CloudFront invalidation<br/>
+*Data migration*: led a MongoDB → MySQL/Sequelize re-platform across 5 models with junction tables and versioned migrations. This was a relational schema redesign, not a lift-and-shift. Sessions are persisted in the DB so the backend tier stays stateless<br/>
+*Incidents resolved*: a JDK 17/21 toolchain mismatch on the agent, and an ES-module env-loading race at startup</sub>
 
-<sub>*Problem* — ECS deployments were failing silently under the circuit breaker<br/>
-*Approach* — diagnosed and resolved circuit-breaker rollback failures and an nginx port-mapping misconfig in production — failures that only surface under real deploy conditions<br/>
-*Features* — Monaco-based anti-cheat exam module, cascade-delete data integrity</sub>
+<sub>`Jenkins` `CloudFront OAC` `RDS MySQL` `Sequelize` `Docker`</sub>
 
-<sub>`ECS Fargate` `React` `MongoDB`</sub>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### 🔐 &nbsp;SimpleBank: Zero-Standing-Access Delivery
+<sub>Keyless CI/CD · no SSH · no stored cloud credentials</sub>
+
+<sub>*Context*: a Flask/MySQL service across a tagged EC2 fleet, where the design goal was to remove standing access entirely, not just to automate deploys<br/>
+*Design decisions*: GitHub Actions assumes a scoped IAM role through OIDC federation, so no AWS keys exist anywhere. Deploys run through SSM Session Manager with port 22 closed fleet-wide, and Default Host Management Configuration (DHMC) brings instances under SSM. Secrets come from SSM Parameter Store at runtime, and deploy scripts are distributed through S3<br/>
+*Release model*: immutable, tagged images in ECR, with Docker Compose pinned by `IMAGE_TAG` so any previous build can be rolled back to</sub>
+
+<sub>`OIDC` `SSM Session Manager` `Parameter Store` `ECR`</sub>
+
+</td>
+<td width="50%" valign="top">
+
+#### 🎯 &nbsp;IQuiz Hub: Containerised Platform on ECS Fargate
+<sub>Serverless containers · production incident response</sub>
+
+<sub>*Context*: a React/Node/MongoDB assessment platform with Google OAuth and a proctored coding-exam module, running on ECS Fargate in ap-south-1<br/>
+*Incident*: deployments were silently rolled back by the ECS deployment circuit breaker. I traced the root cause to a container/Nginx port mismatch (80 vs 3000) that failed health checks only under real deploy conditions, fixed it, and hardened the pipeline<br/>
+*Delivery*: GitHub Actions → versioned images → rolling ECS deploys<br/>
+*Product integrity*: Monaco-based exam environment with anti-cheat controls and a server-trusted auto-submit timer, plus cascade deletes to keep quiz and activity records consistent</sub>
+
+<sub>`ECS Fargate` `Circuit Breaker` `GitHub Actions` `MongoDB`</sub>
 
 </td>
 </tr>
 </table>
 
 <details>
-<summary><sub>📂 &nbsp;More projects — serverless blog, security tooling, IaC deployment</sub></summary>
+<summary><sub>📂 &nbsp;More projects: serverless publishing platform, host intrusion monitoring, IaC deployment</sub></summary>
 
 <br/>
 
-<sub>🌐 &nbsp;**DevOps World** — fully serverless blog (`blog.devilhai.info`): S3 + CloudFront (OAC) + Route 53 + ACM for the frontend, Cognito for auth, SES for email, Lambda behind API Gateway for subscriber onboarding, DynamoDB for post metadata.
+<sub>🌐 &nbsp;**DevOps World**: a fully serverless publishing platform (`blog.devilhai.info`) with no servers to patch. Static frontend on S3 + CloudFront (OAC) + Route 53 + ACM; Cognito for auth; an event-driven subscriber flow through API Gateway → Lambda → SES; DynamoDB for post metadata; and WAF rate limiting on the public subscription endpoint to block abuse.
 
-🚨 &nbsp;**SSH Intrusion Monitor** — `systemd`-managed service tailing `/var/log/auth.log` in real time, geolocating suspicious source IPs and firing SMTP alerts, paired with a cron-driven bash-history audit digest.
+🚨 &nbsp;**SSH Intrusion Monitor**: host-level detection running as a `systemd` service. It streams `/var/log/auth.log` in real time, geolocates suspicious source IPs and raises email alerts, and a scheduled shell-history audit digest adds an after-the-fact trail of operator activity.
 
-☁️ &nbsp;**TaskMaster** — Flask/MongoDB Atlas app with infrastructure fully defined in Terraform, shipped as a versioned Docker image.
+☁️ &nbsp;**TaskMaster**: a Flask/MongoDB Atlas service with all infrastructure defined in Terraform and shipped as a versioned Docker image, so environments are reproducible from code.
 
-📖 &nbsp;**Kubernetes Internals Guide** — a 20-section, self-authored technical reference written while building the K3s cluster above, now used as training material.</sub>
+📖 &nbsp;**Kubernetes Internals Guide**: a 20-section technical reference I wrote while operating the clusters above, covering control-plane internals, scheduling, networking and RBAC. It is now used as training material for engineers.</sub>
 
 </details>
 
