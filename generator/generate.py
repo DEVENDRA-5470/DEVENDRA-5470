@@ -10,8 +10,11 @@ Run locally:
 In CI, GITHUB_TOKEN is provided automatically by the workflow.
 """
 
+import math
 import os
+import random
 import sys
+from datetime import date, datetime, timezone
 import requests
 import yaml
 
@@ -67,21 +70,85 @@ def fetch_contributions() -> dict:
     {{
       user(login: "{USERNAME}") {{
         contributionsCollection {{
-          contributionCalendar {{ totalContributions }}
+          contributionCalendar {{
+            totalContributions
+            weeks {{ contributionDays {{ date contributionCount }} }}
+          }}
           totalCommitContributions
           totalPullRequestContributions
           totalIssueContributions
+          pullRequestContributions(first: 100) {{ nodes {{ occurredAt }} }}
         }}
       }}
     }}
     """
     data = gql(query)["user"]["contributionsCollection"]
+
+    # per-day counts -> used for the monthly contributions sparkline
+    daily = [
+        (d["date"], d["contributionCount"])
+        for w in data["contributionCalendar"]["weeks"]
+        for d in w["contributionDays"]
+    ]
+    pr_dates = [n["occurredAt"][:10] for n in data["pullRequestContributions"]["nodes"]]
+
     return {
         "contributions_year": data["contributionCalendar"]["totalContributions"],
         "commits": data["totalCommitContributions"],
         "prs": data["totalPullRequestContributions"],
         "issues": data["totalIssueContributions"],
+        "_daily": daily,
+        "_pr_dates": pr_dates,
     }
+
+
+# ---------------------------------------------------------------------------
+# Time-series helpers (feed the sparklines with real data)
+# ---------------------------------------------------------------------------
+
+def last_n_months(n: int = 12) -> list[str]:
+    """Return ['YYYY-MM', ...] for the last n months, oldest first."""
+    today = date.today()
+    y, m = today.year, today.month
+    out = []
+    for _ in range(n):
+        out.append(f"{y:04d}-{m:02d}")
+        m -= 1
+        if m == 0:
+            y, m = y - 1, 12
+    return out[::-1]
+
+
+def monthly_totals(pairs: list[tuple[str, int]], months: list[str]) -> list[int]:
+    """Sum (YYYY-MM-DD, count) pairs into the given month buckets."""
+    buckets = {mo: 0 for mo in months}
+    for d, c in pairs:
+        if d[:7] in buckets:
+            buckets[d[:7]] += c
+    return [buckets[mo] for mo in months]
+
+
+def cumulative_by_month(pairs: list[tuple[str, int]], months: list[str]) -> list[int]:
+    """Running total of (YYYY-MM-DD, count) pairs as of the end of each month (all-time)."""
+    out = []
+    for mo in months:
+        out.append(sum(c for d, c in pairs if d[:7] <= mo))
+    return out
+
+
+def next_milestone(v: int) -> int:
+    """Next 'nice' target above v: 1, 2, 5 x 10^k (e.g. 61 -> 100, 1057 -> 2000)."""
+    if v < 1:
+        return 1
+    k = 10 ** int(math.floor(math.log10(v)))
+    for m in (1, 2, 5, 10):
+        if m * k > v:
+            return m * k
+    return 10 * k
+
+
+def short(n: int) -> str:
+    return f"{n/1000:g}k" if n >= 1000 else str(n)
 
 
 def fetch_stats() -> dict:
@@ -131,113 +198,235 @@ def fetch_stats() -> dict:
 
     contrib = fetch_contributions()
 
+    # --- 12-month series for the sparklines (all derived from real API data) ---
+    months = last_n_months(12)
+    repo_created = [(r["created_at"][:10], 1) for r in repos]
+    # GitHub's REST API has no per-star timestamps without paging every stargazer,
+    # so the stars line is "stars held by repos that existed by that month".
+    star_by_repo_age = [(r["created_at"][:10], r.get("stargazers_count", 0)) for r in repos]
+
+    series = {
+        "contributions": monthly_totals(contrib.pop("_daily"), months),
+        "repos": cumulative_by_month(repo_created, months),
+        "stars": cumulative_by_month(star_by_repo_age, months),
+        "prs": cumulative_by_month([(d, 1) for d in contrib.pop("_pr_dates")], months),
+    }
+
     return {
         "repos": len(repos),
         "stars": stars,
         "forks": forks,
         "languages": lang_pct,
+        "series": series,
         **contrib,
     }
 
 
-def render_stats_card(stats: dict) -> str:
-    W, H, RX = 900, 170, 10
-    perimeter = 2 * (W + H) - 8 * RX
+# ---------------------------------------------------------------------------
+# Stats card renderer
+# ---------------------------------------------------------------------------
 
-    blocks = [
-        ("📈", f'{stats["contributions_year"]:,}', "contributions", "this year", ACCENT_A),
-        ("📦", f'{stats["repos"]}', "repositories", "owned", ACCENT_B),
-        ("⭐", f'{stats["stars"]}', "stars", "earned", "#fbbf24"),
-        ("🔀", f'{stats["prs"]}', "pull requests", "opened", "#c4b5fd"),
+def _icon(kind: str, cx: float, cy: float, c: str) -> str:
+    if kind == "contrib":
+        return (f'<g stroke="{c}" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">'
+                f'<polyline points="{cx-8},{cy+5} {cx-3},{cy-1} {cx+1},{cy+3} {cx+8},{cy-6}"/>'
+                f'<polyline points="{cx+3},{cy-6} {cx+8},{cy-6} {cx+8},{cy-1}"/></g>')
+    if kind == "repo":
+        return (f'<g stroke="{c}" stroke-width="1.8" fill="none" stroke-linejoin="round">'
+                f'<path d="M{cx-7},{cy-7} h11 a3,3 0 0 1 3,3 v11 h-11 a3,3 0 0 1 -3,-3 z"/>'
+                f'<line x1="{cx-7}" y1="{cy+3}" x2="{cx+7}" y2="{cy+3}"/></g>')
+    if kind == "star":
+        pts = []
+        for i in range(10):
+            r = 8.5 if i % 2 == 0 else 3.6
+            a = -math.pi / 2 + i * math.pi / 5
+            pts.append(f"{cx + r*math.cos(a):.1f},{cy + r*math.sin(a):.1f}")
+        return f'<polygon points="{" ".join(pts)}" fill="none" stroke="{c}" stroke-width="1.7" stroke-linejoin="round"/>'
+    return (f'<g stroke="{c}" stroke-width="1.8" fill="none" stroke-linecap="round">'
+            f'<circle cx="{cx-5}" cy="{cy-6}" r="2.2"/><circle cx="{cx-5}" cy="{cy+6}" r="2.2"/>'
+            f'<circle cx="{cx+5}" cy="{cy+6}" r="2.2"/>'
+            f'<line x1="{cx-5}" y1="{cy-3.8}" x2="{cx-5}" y2="{cy+3.8}"/>'
+            f'<path d="M{cx+5},{cy+3.8} v-6 a3,3 0 0 0 -3,-3 h-3"/></g>')
+
+
+def _count_steps(value: int) -> list[str]:
+    """Intermediate numbers for the count-up animation, ending on the real value."""
+    steps = []
+    for f in (0, 0.2, 0.47, 0.74, 0.91, 1):
+        s = f"{round(value * f):,}"
+        if not steps or steps[-1] != s:
+            steps.append(s)
+    return steps
+
+
+def render_stats_card(stats: dict) -> str:
+    W, H = 900, 220
+    CW, CH, CY0, GAP = 200, 136, 58, 13
+    series = stats.get("series", {})
+
+    cards = [
+        ("contributions", "this year", stats["contributions_year"], ACCENT_A, "#7DFAFF", "contrib", series.get("contributions")),
+        ("repositories", "owned", stats["repos"], ACCENT_B, "#86EFAC", "repo", series.get("repos")),
+        ("stars", "earned", stats["stars"], "#FBBF24", "#FDE68A", "star", series.get("stars")),
+        ("pull requests", "opened", stats["prs"], "#C4B5FD", "#F0ABFC", "pr", series.get("prs")),
     ]
 
-    block_svgs = []
-    x = 30
-    w = 200
-    gap = 13
-    for i, (icon, value, label1, label2, color) in enumerate(blocks):
-        delay = 0.08 + i * 0.14
-        pulse_delay = 0.8 + i * 0.4
-        cx, cy = x, 99  # spark origin, left edge mid-height of the card
+    o: list[str] = []
+    a = o.append
 
-        sparks = []
-        import math as _math
-        for k in range(6):
-            angle = _math.radians(k * 60 + i * 20)
-            dx = 16 * _math.cos(angle)
-            dy = 16 * _math.sin(angle)
-            sparks.append(f'''
-            <circle cx="{cx}" cy="{cy}" r="1.3" fill="{color}" filter="url(#sparkGlow)" opacity="0">
-              <animate attributeName="cx" from="{cx}" to="{cx+dx:.1f}" dur="0.55s" begin="{delay+0.05:.2f}s" fill="freeze" calcMode="spline" keySplines="0.2 0.6 0.4 1"/>
-              <animate attributeName="cy" from="{cy}" to="{cy+dy:.1f}" dur="0.55s" begin="{delay+0.05:.2f}s" fill="freeze" calcMode="spline" keySplines="0.2 0.6 0.4 1"/>
-              <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.25;1" dur="0.55s" begin="{delay+0.05:.2f}s" fill="freeze"/>
-            </circle>''')
+    a(f"""<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .mono{{font-family:'Fira Code','JetBrains Mono',Consolas,monospace}}
+  .twk{{animation:twk 3.2s ease-in-out infinite}}
+  @keyframes twk{{0%,100%{{opacity:.15}}50%{{opacity:.9}}}}
+  .blob1{{animation:drift1 14s ease-in-out infinite alternate}}
+  .blob2{{animation:drift2 18s ease-in-out infinite alternate}}
+  @keyframes drift1{{from{{transform:translate(0,0)}}to{{transform:translate(260px,30px)}}}}
+  @keyframes drift2{{from{{transform:translate(0,0)}}to{{transform:translate(-300px,-20px)}}}}
+  .cursor{{animation:blink 1s steps(1) infinite}}
+  @keyframes blink{{50%{{opacity:0}}}}
+  .live{{animation:livep 1.6s ease-out infinite;transform-box:fill-box;transform-origin:center}}
+  @keyframes livep{{0%{{transform:scale(1);opacity:.8}}100%{{transform:scale(3.2);opacity:0}}}}
+  .float{{animation:fl 5s ease-in-out infinite}}
+  @keyframes fl{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-2px)}}}}
+  @media (prefers-reduced-motion:reduce){{*{{animation:none!important}}}}
+</style>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{BG}"/><stop offset="1" stop-color="#0a1120"/></linearGradient>
+  <radialGradient id="b1"><stop offset="0" stop-color="{ACCENT_A}" stop-opacity=".22"/><stop offset="1" stop-color="{ACCENT_A}" stop-opacity="0"/></radialGradient>
+  <radialGradient id="b2"><stop offset="0" stop-color="#A855F7" stop-opacity=".18"/><stop offset="1" stop-color="#A855F7" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="{ACCENT_A}" stroke-opacity=".05"/></pattern>
+  <linearGradient id="frame" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="{ACCENT_A}"/><stop offset=".35" stop-color="{ACCENT_B}"/><stop offset=".7" stop-color="#C4B5FD"/><stop offset="1" stop-color="{ACCENT_A}"/>
+    <animate attributeName="x1" values="0;1;0" dur="8s" repeatCount="indefinite"/><animate attributeName="x2" values="1;2;1" dur="8s" repeatCount="indefinite"/>
+  </linearGradient>
+  <linearGradient id="sweep" x1="0" x2="1"><stop offset="0" stop-color="#7dfaff" stop-opacity="0"/><stop offset=".5" stop-color="#7dfaff" stop-opacity=".10"/><stop offset="1" stop-color="#7dfaff" stop-opacity="0"/></linearGradient>
+  <linearGradient id="title" x1="0" x2="1"><stop offset="0" stop-color="{ACCENT_A}"/><stop offset="1" stop-color="{ACCENT_B}"/></linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="softglow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+  <clipPath id="frameclip"><rect width="{W}" height="{H}" rx="14"/></clipPath>
+  <clipPath id="type"><rect x="28" y="16" width="0" height="28"><animate attributeName="width" from="0" to="420" dur="1.4s" begin="0.1s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/></rect></clipPath>""")
 
-        block_svgs.append(f"""
-        {''.join(sparks)}
+    for i, (_, _, _, c, c2, _, _) in enumerate(cards):
+        a(f'<linearGradient id="cg{i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{c}"/><stop offset="1" stop-color="{c2}"/></linearGradient>')
+        a(f'<linearGradient id="area{i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{c}" stop-opacity=".35"/><stop offset="1" stop-color="{c}" stop-opacity="0"/></linearGradient>')
+        a(f'<linearGradient id="card{i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{c}" stop-opacity=".09"/><stop offset=".55" stop-color="{PANEL}" stop-opacity=".92"/><stop offset="1" stop-color="#0b111b" stop-opacity=".96"/></linearGradient>')
+    a("</defs>")
 
-        <g opacity="0">
-          <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="{delay:.2f}s" fill="freeze"/>
-          <animateTransform attributeName="transform" type="translate" from="0,14" to="0,0" dur="0.5s" begin="{delay:.2f}s" fill="freeze" calcMode="spline" keySplines="0.2 0.7 0.3 1"/>
+    # background: grid, drifting aurora blobs, twinkling stars, periodic scan sweep
+    a(f'<g clip-path="url(#frameclip)"><rect width="{W}" height="{H}" fill="url(#bg)"/><rect width="{W}" height="{H}" fill="url(#grid)"/>')
+    a('<circle class="blob1" cx="160" cy="60" r="220" fill="url(#b1)"/><circle class="blob2" cx="760" cy="180" r="240" fill="url(#b2)"/>')
+    rng = random.Random(7)  # fixed seed -> stable output, no noisy git diffs
+    for _ in range(38):
+        x, y, r = rng.uniform(6, W - 6), rng.uniform(6, H - 6), rng.choice([.6, .8, 1, 1.2])
+        a(f'<circle class="twk" cx="{x:.0f}" cy="{y:.0f}" r="{r}" fill="#cfefff" '
+          f'style="animation-delay:{rng.uniform(0, 3.2):.2f}s;animation-duration:{rng.uniform(2.4, 4.8):.1f}s"/>')
+    a(f'<rect x="-300" y="0" width="300" height="{H}" fill="url(#sweep)"><animate id="sw" attributeName="x" values="-300;{W}" dur="2.2s" begin="0.2s;sw.end+5s"/></rect>')
+    a("</g>")
 
-          <rect x="{x}" y="52" width="{w}" height="95" rx="8" fill="{PANEL}" stroke="{BORDER}" filter="url(#pillGlow)">
-            <animate attributeName="stroke" values="{BORDER};{color};{BORDER}" dur="4.5s" begin="{pulse_delay:.2f}s" repeatCount="indefinite"/>
-          </rect>
-          <rect x="{x}" y="52" width="4" height="95" rx="2" fill="{color}"/>
+    # outer frame + chasing gradient border
+    per = 2 * (W - 2 + H - 2)
+    a(f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="14" fill="none" stroke="{BORDER}"/>')
+    a(f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="14" fill="none" stroke="url(#frame)" stroke-width="1.6" stroke-dasharray="160 {per-160}" filter="url(#glow)" opacity=".85"><animate attributeName="stroke-dashoffset" from="0" to="-{per}" dur="10s" repeatCount="indefinite"/></rect>')
+    a(f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="14" fill="none" stroke="url(#frame)" stroke-width="1.6" stroke-dasharray="80 {per-80}" stroke-dashoffset="-{per//2}" opacity=".5"><animate attributeName="stroke-dashoffset" from="-{per//2}" to="-{per + per//2}" dur="10s" repeatCount="indefinite"/></rect>')
 
-          <text x="{x+20}" y="75" font-size="16">{icon}</text>
-          <text x="{x+20}" y="90" font-size="28" font-weight="700" fill="{TEXT_MAIN}">{value}</text>
-          <text x="{x+20}" y="112" font-size="12" fill="{TEXT_MUTED}">{label1}</text>
-          <text x="{x+20}" y="128" font-size="12" fill="{TEXT_MUTED}">{label2}</text>
+    # header: typewriter title, blinking cursor, LIVE badge
+    a('<g class="mono">')
+    a('<g clip-path="url(#type)"><text x="30" y="36" font-size="13" fill="#4b6478">'
+      f'<tspan fill="{ACCENT_A}" font-weight="700">❯</tspan> <tspan fill="url(#title)" font-weight="700">mission.telemetry</tspan>'
+      '<tspan fill="#4b6478"> // live from GitHub API</tspan></text></g>')
+    a(f'<rect class="cursor" x="0" y="25" width="7" height="14" fill="{ACCENT_A}" opacity="0"><set attributeName="opacity" to="1" begin="1.5s"/>'
+      '<animate attributeName="x" from="30" to="372" dur="1.4s" begin="0.1s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/></rect>')
+    a(f'<g transform="translate({W-128},31)"><rect x="-12" y="-13" width="110" height="22" rx="11" fill="#0d1a14" stroke="{ACCENT_B}" stroke-opacity=".45"/>'
+      f'<circle class="live" cx="0" cy="-2" r="3.5" fill="{ACCENT_B}"/><circle cx="0" cy="-2" r="3.5" fill="{ACCENT_B}" filter="url(#glow)"/>'
+      f'<text x="10" y="2" font-size="11" font-weight="700" fill="{ACCENT_B}" letter-spacing="2">LIVE</text>'
+      '<text x="48" y="2" font-size="10" fill="#4b6478">sync ✓</text></g>')
+    a("</g>")
 
-          <rect x="{x+20}" y="137" width="160" height="3" rx="1.5" fill="{BORDER}"/>
-          <rect x="{x+20}" y="137" width="0" height="3" rx="1.5" fill="{color}">
-            <animate attributeName="width" from="0" to="160" dur="0.9s" begin="{delay+0.2:.2f}s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
-          </rect>
+    for i, (l1, l2, value, c, c2, kind, pts) in enumerate(cards):
+        x = 30 + i * (CW + GAP)
+        d = 0.15 + i * 0.14
+        vals = _count_steps(value)
+        goal = next_milestone(value)
+        frac = value / goal
 
-          <circle cx="{x+184}" cy="60" r="3" fill="{color}" opacity="0">
-            <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="{delay+0.5:.2f}s" fill="freeze"/>
-            <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" begin="{delay+0.8:.2f}s" repeatCount="indefinite"/>
-          </circle>
-        </g>
-        """)
-        x += w + gap
+        a(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".6s" begin="{d:.2f}s" fill="freeze"/>'
+          f'<animateTransform attributeName="transform" type="translate" from="0,18" to="0,0" dur=".7s" begin="{d:.2f}s" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1"/>')
+        a(f'<g class="float" style="animation-delay:{i*0.6:.1f}s">')
 
-    return f"""<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="{ACCENT_A}"/>
-      <stop offset="100%" stop-color="{ACCENT_B}"/>
-    </linearGradient>
-    <filter id="pillGlow"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="sparkGlow"><feGaussianBlur stdDeviation="1" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <linearGradient id="sweepGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#7dfaff" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#7dfaff" stop-opacity="0.16"/>
-      <stop offset="100%" stop-color="#7dfaff" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="borderChase" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="{ACCENT_A}" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#7dfaff" stop-opacity="1"/>
-      <stop offset="100%" stop-color="{ACCENT_B}" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
+        # card body + chasing border + top accent
+        a(f'<rect x="{x+20}" y="{CY0+CH-14}" width="{CW-40}" height="14" rx="7" fill="{c}" opacity=".18" filter="url(#softglow)"/>')
+        a(f'<rect x="{x}" y="{CY0}" width="{CW}" height="{CH}" rx="12" fill="url(#card{i})" stroke="{BORDER}"/>')
+        p = 2 * (CW + CH)
+        a(f'<rect x="{x}" y="{CY0}" width="{CW}" height="{CH}" rx="12" fill="none" stroke="url(#cg{i})" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="110 {p-110}" filter="url(#glow)">'
+          f'<animate attributeName="stroke-dashoffset" from="{-i*160}" to="{-i*160-p}" dur="{5+i*0.7:.1f}s" repeatCount="indefinite"/></rect>')
+        a(f'<rect x="{x+14}" y="{CY0}" width="56" height="2" rx="1" fill="url(#cg{i})" filter="url(#glow)"/>')
 
-  <rect width="{W}" height="{H}" rx="{RX}" fill="{BG}" stroke="{BORDER}"/>
+        # ring gauge = progress toward next milestone (real, not decorative)
+        rcx, rcy, r = x + CW - 38, CY0 + 38, 21
+        C = 2 * math.pi * r
+        a(f'<circle cx="{rcx}" cy="{rcy}" r="{r}" fill="none" stroke="{BORDER}" stroke-width="4"/>')
+        a(f'<circle cx="{rcx}" cy="{rcy}" r="{r}" fill="none" stroke="url(#cg{i})" stroke-width="4" stroke-linecap="round" stroke-dasharray="{C:.1f}" stroke-dashoffset="{C:.1f}" transform="rotate(-90 {rcx} {rcy})" filter="url(#glow)">'
+          f'<animate attributeName="stroke-dashoffset" from="{C:.1f}" to="{C*(1-frac):.1f}" dur="1.4s" begin="{d+0.3:.2f}s" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1"/></circle>')
+        a(f'<circle cx="{rcx}" cy="{rcy}" r="{r+7}" fill="none" stroke="{c}" stroke-opacity=".25" stroke-width="1" stroke-dasharray="2 6">'
+          f'<animateTransform attributeName="transform" type="rotate" from="0 {rcx} {rcy}" to="360 {rcx} {rcy}" dur="{14+i*2}s" repeatCount="indefinite"/></circle>')
+        a(f'<circle cx="{rcx}" cy="{rcy-r-7}" r="2" fill="{c2}" filter="url(#glow)">'
+          f'<animateTransform attributeName="transform" type="rotate" from="0 {rcx} {rcy}" to="-360 {rcx} {rcy}" dur="{6+i}s" repeatCount="indefinite"/></circle>')
+        a(_icon(kind, rcx, rcy, c2))
+        a(f'<text class="mono" x="{rcx}" y="{rcy+r+20}" font-size="9" fill="#64748b" text-anchor="middle">→ {short(goal)}</text>')
 
-  <rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="{RX}" fill="none" stroke="url(#borderChase)"
-    stroke-width="1.5" stroke-dasharray="90 {perimeter-90:.0f}" opacity="0.5">
-    <animate attributeName="stroke-dashoffset" from="0" to="-{perimeter:.0f}" dur="16s" repeatCount="indefinite"/>
-  </rect>
+        # count-up number
+        a('<g class="mono">')
+        t0, step = d + 0.35, 0.11
+        for j, v in enumerate(vals):
+            b = t0 + j * step
+            if j < len(vals) - 1:
+                anim = f'<set attributeName="opacity" to="1" begin="{b:.2f}s"/><set attributeName="opacity" to="0" begin="{b+step:.2f}s"/>'
+            else:
+                anim = (f'<set attributeName="opacity" to="1" begin="{b:.2f}s"/>'
+                        f'<animate attributeName="fill" values="#ffffff;{c2};{TEXT_MAIN}" dur=".6s" begin="{b:.2f}s" fill="freeze"/>')
+            a(f'<text x="{x+18}" y="{CY0+50}" font-size="30" font-weight="700" fill="{TEXT_MAIN}" opacity="0" letter-spacing="-1">{v}{anim}</text>')
+        a(f'<text x="{x+18}" y="{CY0+72}" font-size="12" fill="#cbd5e1">{l1}</text>'
+          f'<text x="{x+18}" y="{CY0+87}" font-size="11" fill="#64748b">{l2}</text>')
+        a("</g>")
 
-  <text x="30" y="34" font-family="{FONT}" font-size="13" fill="#4b6478">// mission telemetry — live from GitHub API</text>
+        # sparkline (12 months of real data)
+        pts = pts or [0] * 12
+        sx0, sy0, sw, sh = x + 18, CY0 + CH - 14, CW - 36, 30
+        lo, hi = min(pts), max(pts)
+        span = (hi - lo) or 1
+        coords = [
+            (sx0 + k * sw / (len(pts) - 1), sy0 - 2 - ((v - lo) / span) * (sh - 4) if hi != lo else sy0 - sh / 2)
+            for k, v in enumerate(pts)
+        ]
+        path = "M" + " L".join(f"{px:.1f},{py:.1f}" for px, py in coords)
+        L = sum(math.dist(coords[k], coords[k + 1]) for k in range(len(coords) - 1))
+        a(f'<path d="{path} L{sx0+sw:.1f},{sy0} L{sx0},{sy0} Z" fill="url(#area{i})" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".8s" begin="{d+1.0:.2f}s" fill="freeze"/></path>')
+        # solid stroke: a gradient on a perfectly flat line (zero-height bbox) renders nothing
+        a(f'<path d="{path}" fill="none" stroke="{c}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="{L:.0f}" stroke-dashoffset="{L:.0f}" filter="url(#glow)">'
+          f'<animate attributeName="stroke-dashoffset" from="{L:.0f}" to="0" dur="1.2s" begin="{d+0.5:.2f}s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/></path>')
+        ex, ey = coords[-1]
+        a(f'<circle cx="{ex:.1f}" cy="{ey:.1f}" r="2.6" fill="{c2}" opacity="0" filter="url(#glow)"><set attributeName="opacity" to="1" begin="{d+1.6:.2f}s"/></circle>')
+        a(f'<circle cx="{ex:.1f}" cy="{ey:.1f}" r="2.6" fill="none" stroke="{c2}" opacity="0">'
+          f'<animate attributeName="r" values="2.6;9" dur="1.6s" begin="{d+1.6:.2f}s" repeatCount="indefinite"/>'
+          f'<animate attributeName="opacity" values=".9;0" dur="1.6s" begin="{d+1.6:.2f}s" repeatCount="indefinite"/></circle>')
+        a(f'<circle r="1.8" fill="#fff" opacity="0"><set attributeName="opacity" to=".9" begin="{d+1.8:.2f}s"/>'
+          f'<animateMotion path="{path}" dur="3.2s" begin="{d+1.8:.2f}s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/></circle>')
 
-  <rect x="-260" y="0" width="260" height="{H}" fill="url(#sweepGrad)">
-    <animate attributeName="x" from="-260" to="{W}" dur="1.3s" begin="0.1s" fill="freeze"/>
-  </rect>
+        # particle burst when the count-up lands
+        tb = t0 + (len(vals) - 1) * step
+        for q in range(10):
+            ang, dist = q * math.pi / 5 + 0.3, 22 + (q % 3) * 8
+            bx, by = x + 40, CY0 + 38
+            a(f'<circle cx="{bx}" cy="{by}" r="1.4" fill="{c2}" opacity="0">'
+              f'<animate attributeName="cx" from="{bx}" to="{bx + dist*math.cos(ang):.1f}" dur=".8s" begin="{tb:.2f}s" fill="freeze" calcMode="spline" keySplines="0.1 0.8 0.3 1"/>'
+              f'<animate attributeName="cy" from="{by}" to="{by + dist*math.sin(ang):.1f}" dur=".8s" begin="{tb:.2f}s" fill="freeze" calcMode="spline" keySplines="0.1 0.8 0.3 1"/>'
+              f'<animate attributeName="opacity" values="0;1;0" keyTimes="0;.2;1" dur=".8s" begin="{tb:.2f}s" fill="freeze"/></circle>')
 
-  <g font-family="{FONT}">{''.join(block_svgs)}</g>
-</svg>"""
+        a("</g></g>")
+
+    a("</svg>")
+    return "\n".join(o)
 
 
 def render_languages(stats: dict) -> str:
